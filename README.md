@@ -1,2 +1,3 @@
-# Unifit
-Projeto de Desenvolvimento Tecnológico para o Mundo II
+# unifit
+
+Unifit: A fitness app for college students.
