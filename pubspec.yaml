@@ -1,5 +1,5 @@
 name: unifit
-description: 'Unifit: A fitness app for college students.'.
+description: 'Unifit: A fitness app for college students.'
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -36,6 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.7
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,23 @@ flutter:
   assets:
     - lib/assets/layers/unifit_logo.png
     - lib/assets/layers/sports_icons.png
+    - lib/assets/layers/presentation1.jpg
+    - lib/assets/layers/presentation2.jpg
+    - lib/assets/layers/presentation3.jpg
+    - lib/assets/layers/presentation4.jpg
+    - lib/assets/layers/presentation5.jpg
+    - lib/assets/layers/Login.jpg
+    - lib/assets/layers/Cadastro.jpg
+    - lib/assets/layers/Cadastro1.jpg
+    - lib/assets/layers/Cadastro2.jpg
+    - lib/assets/layers/Cadastro3.jpg
+    - lib/assets/layers/Cadastro4.jpg
+    - lib/assets/layers/Cadastro5.jpg
+    - lib/assets/layers/Cadastro5-1.jpg
+    - lib/assets/layers/Cadastro6.jpg
+    - lib/assets/layers/Cadastro7.jpg
+    
+    
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

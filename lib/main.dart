@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'utils/constants.dart';
 import 'views/splash.dart';
 
@@ -13,21 +14,40 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: AppStrings.TITLE,
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a blue toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.MAIN_BLUE),
-        useMaterial3: true,
+      home: Scaffold(
+        body: Center(
+          child: CarouselSlider(
+            items: [
+              Image.asset('lib/assets/layers/Apresentação_1.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Apresentação_2.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Apresentação_3.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Apresentação_4.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Apresentação_5.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Login.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Cadastro.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Cadastro1.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Cadastro2.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Cadastro3.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Cadastro4.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Cadastro5.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Cadastro5-1.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Cadastro6.jpg',fit: BoxFit.cover),
+              Image.asset('lib/assets/layers/Cadastro7.jpg',fit: BoxFit.cover),
+            ],
+            options: CarouselOptions(
+              height: MediaQuery.of(context).size.height,
+              enlargeCenterPage: false,
+              autoPlay: true,
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enableInfiniteScroll: true,
+              autoPlayAnimationDuration: Duration(milliseconds: 1000),
+              viewportFraction: 1.0,
+              disableCenter: true,
+              scrollDirection: Axis.horizontal,
+            ),
+          ),
+        ),
       ),
-      home: const Splash(),
     );
   }
 }
