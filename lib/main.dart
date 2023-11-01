@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:unifit/views/presentation.dart';
 import 'utils/constants.dart';
-import 'views/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.MAIN_BLUE),
         useMaterial3: true,
       ),
-      home: const Splash(),
+      home: const Presentation(),
     );
   }
 }

@@ -1,5 +1,5 @@
 name: unifit
-description: 'Unifit: A fitness app for college students.'.
+description: 'Unifit: A fitness app for college students.'
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -59,10 +59,27 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  fonts:
+    - family: EncodeSans
+      fonts:
+        - asset: lib/assets/fonts/encode_sans/encode_sans.ttf
+          weight: 400  # normal
+        - asset: lib/assets/fonts/encode_sans/encode_sans_bold.ttf
+          weight: 700  # bold
+        - asset: lib/assets/fonts/encode_sans/encode_sans_extra_light.ttf
+          weight: 200  # extra light
+
+    - family: Lato
+      fonts:
+        - asset: lib/assets/fonts/lato/lato_bold.ttf
+          weight: 700  # bold
+
   # To add assets to your application, add an assets section, like this:
   assets:
     - lib/assets/layers/unifit_logo.png
     - lib/assets/layers/sports_icons.png
+    - lib/assets/layers/presentation_image_group1.png
+    - lib/assets/layers/presentation_image_group2.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
