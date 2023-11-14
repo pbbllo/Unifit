@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:unifit/models/data/user_data.dart';
+import 'package:unifit/models/user_data.dart';
 import 'package:unifit/services/user_service.dart';
-import 'package:unifit/models/error_controller.dart';
+import 'package:unifit/controllers/error_controller.dart';
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

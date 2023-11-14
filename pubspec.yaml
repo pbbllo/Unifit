@@ -86,6 +86,8 @@ flutter:
     - lib/assets/layers/sports_icons.png
     - lib/assets/layers/presentation_image_group1.png
     - lib/assets/layers/presentation_image_group2.png
+    - lib/assets/layers/facebook_icon.png
+    - lib/assets/layers/google_icon.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

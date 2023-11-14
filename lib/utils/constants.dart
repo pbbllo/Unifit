@@ -17,4 +17,10 @@ class AppStrings {
 
 class AppColors {
   static const Color MAIN_BLUE = Color(0xFF010C2D);
+  static const Color MAIN_ORANGE = Color(0xFFFE7453);
+}
+
+class AppBoxs {
+  static const double DEFAULT_BOX = 15.0;
+  static const double ICON_MAIN_BOX = 25.0;
 }
