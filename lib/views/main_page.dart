@@ -78,7 +78,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ],
         currentIndex: _selectedBottomNavBarIndex,
-        selectedItemColor: AppColors.SALMON,
+        selectedItemColor: AppColors.MAIN_ORANGE,
         unselectedItemColor: Colors.white,
         onTap: _onBottomNavBarItemTapped,
       ),
