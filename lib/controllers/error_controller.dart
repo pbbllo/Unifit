@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:unifit/models/log_controller.dart';
+import 'package:unifit/controllers/log_controller.dart';
+import 'package:unifit/utils/constants.dart';
 
 class ErrorHandlerController {
   static String signUpErrorHandling(FirebaseAuthException error) {
@@ -8,23 +9,24 @@ class ErrorHandlerController {
 
     switch (error.code) {
       case "email-already-in-use":
-        errorMessage = errorLog =
-            "There already exists an account with the given email address.";
+        errorMessage = ErrorMessage.EMAIL_ALREADY_USED_MESSAGE;
+        errorLog = ErrorMessage.EMAIL_ALREADY_USED_LOG;
         break;
       case "invalid-email":
-        errorMessage = errorLog = "The email address is not valid.";
+        errorMessage = ErrorMessage.INVALID_EMAIL_MESSAGE;
+        errorLog = ErrorMessage.INVALID_EMAIL_LOG;
         break;
       case "operation-not-allowed":
-        errorLog =
-            "Email/password accounts are not enabled. Enable email/password accounts in the Firebase Console, under the Auth tab.";
-        errorMessage = "Internal error.";
-
+        errorMessage = ErrorMessage.EXTERNAL_ERROR_MESSAGE;
+        errorLog = ErrorMessage.CREDENTIALS_FIREBASE_ERROR_LOG;
         break;
       case "weak-password":
-        errorMessage = errorLog = "The password is not strong enough.";
+        errorMessage = ErrorMessage.WEAK_PASSWORD_MESSAGE;
+        errorLog = ErrorMessage.WEAK_PASSWORD_LOG;
         break;
       default:
-        errorMessage = "An undefined Error happened.";
+        errorMessage = ErrorMessage.UNDEFINED_MESSAGE;
+        errorLog = ErrorMessage.UNDEFINED_LOG;
     }
 
     LogController.logWarning(errorLog);
@@ -37,23 +39,24 @@ class ErrorHandlerController {
 
     switch (error.code) {
       case "invalid-email":
-        errorMessage = "Your email address appears to be malformed.";
-        errorLog = "Invalid email.";
+        errorMessage = ErrorMessage.INVALID_EMAIL_MESSAGE;
+        errorLog = ErrorMessage.INVALID_EMAIL_LOG;
         break;
       case "wrong-password":
-        errorMessage = errorLog = "Your password is wrong.";
-        errorLog = "Wrong password.";
+        errorMessage = ErrorMessage.WRONG_PASSWORD_MESSAGE;
+        errorLog = ErrorMessage.INVALID_EMAIL_LOG;
         break;
       case "user-not-found":
-        errorMessage = "User with this email doesn't exist.";
-        errorLog = "User not found.";
+        errorMessage = ErrorMessage.USER_NOT_FOUND_MESSAGE;
+        errorLog = ErrorMessage.USER_NOT_FOUND_LOG;
         break;
       case "user-disabled":
-        errorMessage = "Internal error.";
-        errorLog = "Disabled user.";
+        errorMessage = ErrorMessage.USER_DISABLED_MESSAGE;
+        errorLog = ErrorMessage.USER_DISABLED_LOG;
         break;
       default:
-        errorMessage = "An undefined Error happened.";
+        errorMessage = ErrorMessage.UNDEFINED_MESSAGE;
+        errorLog = ErrorMessage.UNDEFINED_LOG;
     }
     LogController.logWarning(errorLog);
     return errorMessage;
@@ -64,21 +67,19 @@ class ErrorHandlerController {
 
     switch (error.code) {
       case "invalid-user-token":
-        errorLog =
-            "The user to be updated belongs to a diffent Firebase project";
+        errorLog = SignOutError.userInvalidError.message;
         break;
       case "user-token-expired":
-        errorLog = "The user to be updated is expired";
+        errorLog = SignOutError.userExpiredError.message;
         break;
       case "null-user":
-        errorLog = "The user to be updated is null.";
+        errorLog = SignOutError.userNotFoundError.message;
         break;
       case "tenant-id-mismatch":
-        errorLog =
-            "User's tenant ID does not match the underlying Auth instance's configured tenant ID.";
+        errorLog = SignOutError.userUnmatchError.message;
         break;
       default:
-        errorLog = "An undefined Error happened.";
+        errorLog = ErrorMessage.UNDEFINED_LOG;
     }
 
     LogController.logWarning(errorLog);
