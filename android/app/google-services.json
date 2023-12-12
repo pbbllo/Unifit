@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "654220668768",
+    "project_id": "unifit-931e0",
+    "storage_bucket": "unifit-931e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654220668768:android:65ed52aa1e46eba47cf805",
+        "android_client_info": {
+          "package_name": "com.unifit.unifit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALRmsLZ3PAAXNPyTSqHdkzg7H437sDwWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
