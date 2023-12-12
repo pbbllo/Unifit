@@ -130,7 +130,7 @@ class _TransitionalPresentationState extends State<TransitionalPresentation> {
                               default:
                                 Navigator.of(context)
                                     .pushReplacement(MaterialPageRoute(
-                                  builder: (context) => const Login(),
+                                  builder: (context) => const LoginView(),
                                 ));
                             }
                           });

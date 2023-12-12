@@ -1,6 +1,4 @@
-import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 abstract class IFirebaseStorageService {
   static final FirebaseStorage firebaseInstance = FirebaseStorage.instance;

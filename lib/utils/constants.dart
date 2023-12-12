@@ -15,6 +15,8 @@ enum SignOutError {
 class AppStrings {
   static const String TITLE = 'Unifit';
   static const String NEXT = 'Próximo';
+  static const String SIGN_IN = 'ENTRAR';
+  static const String SIGN_UP = 'Registre-se de graça!';
   static const String WELCOME_TEXT = 'Bem vindo ao UnitFit.';
   static const String PRESENTATION_TEXT1 =
       'A aplicação perfeita para interação universitária '
@@ -24,25 +26,31 @@ class AppStrings {
   static const String PRESENTATION_TEXT3 =
       'Acompanhe e também compartilhe seu progresso diário com seus amigos!';
   static const String PRESENTATION_TEXT4 = 'E muito mais! Vamos descobrir?';
+  static const String TYPE_YOUR_EMAIL = 'Digite seu email:';
+  static const String TYPE_YOUR_PASSWORD = 'Digite sua senha:';
+  static const String FORGOT_PASSWORD = 'Esqueceu sua senha?';
+  static const String SIGN_IN_SOCIAL_MEDIA = 'Ou entrar com uma conta social';
+  static const String NEW_HERE = 'Novo por aqui?';
 }
 
 class ErrorMessage {
   static const String UNDEFINED_MESSAGE =
-      'An undefined error happened. Please contact the support.';
+      'Ocorreu um erro indefinido. Por favor, entre em contato com o suporte.';
   static const String INTERNAL_ERROR_MESSAGE =
-      'Internal error. Please contact the support.';
+      'Erro interno. Por favor, entre em contato com o suporte.';
   static const String EXTERNAL_ERROR_MESSAGE =
-      'External error. Please contact the support.';
+      'Erro externo. Por favor, entre em contato com o suporte.';
   static const String WEAK_PASSWORD_MESSAGE =
-      'The password is not strong enough.';
+      'A senha não é forte o suficiente.';
   static const String INVALID_EMAIL_MESSAGE =
-      'Your email address appears to be malformed.';
-  static const String WRONG_PASSWORD_MESSAGE = 'Your password is wrong.';
+      'Seu endereço de e-mail está mal formatado.';
+  static const String WRONG_PASSWORD_MESSAGE = 'Sua senha está incorreta.';
   static const String USER_NOT_FOUND_MESSAGE =
-      'User with this email address does not exist.';
+      'Usuário com este endereço de e-mail não existe.';
   static const String EMAIL_ALREADY_USED_MESSAGE =
-      'This email address already exists.';
-  static const String USER_DISABLED_MESSAGE = 'User was blocked by admin';
+      'Este endereço de e-mail já existe.';
+  static const String USER_DISABLED_MESSAGE =
+      'Usuário foi bloqueado pelo administrador.';
 
   static const String UNDEFINED_LOG = 'Undefined error';
   static const String EMAIL_ALREADY_USED_LOG =
@@ -62,7 +70,7 @@ class AppColors {
   static const Color SALMON = Color(0xFFFE7453);
 }
 
-class AppBoxs {
+class AppBoxes {
   static const double DEFAULT_BOX = 15.0;
   static const double ICON_MAIN_BOX = 25.0;
 }
