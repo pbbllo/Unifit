@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:unifit/enums/firebase_collection_enum.dart';
 import 'package:unifit/models/user_data.dart';
-import 'package:unifit/services/user_service.dart';
+import 'package:unifit/services/event_firebase_service.dart';
 import 'package:unifit/controllers/error_controller.dart';
 
 class Auth {
@@ -28,8 +29,10 @@ class Auth {
           .set({});
       IUser userData = UserData(email: email, name: name);
 
-      await UserFirebaseService.instance
-          .put(id: firebaseUser.uid, value: userData.toJson());
+      await FirebaseService.instance.update(
+          id: firebaseUser.uid,
+          value: userData.toJson(),
+          collection: FirebaseCollectionEnum.user);
 
       await firebaseUser.sendEmailVerification();
     } else {

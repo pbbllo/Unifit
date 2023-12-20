@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:unifit/views/presentation.dart';
+import 'package:unifit/views/main_page.dart';
 import 'utils/constants.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -27,7 +30,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.MAIN_BLUE),
         useMaterial3: true,
       ),
-      home: const Presentation(),
+      home: const MainPage(
+        title: AppStrings.EMPTY,
+      ),
     );
   }
 }

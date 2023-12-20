@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:unifit/models/log_controller.dart';
+import 'package:unifit/controllers/log_controller.dart';
 
 class ErrorHandlerController {
   static String signUpErrorHandling(FirebaseAuthException error) {

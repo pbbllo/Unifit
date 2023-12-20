@@ -8,6 +8,8 @@ class GradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -32,19 +34,19 @@ class GradientButton extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
           child: SizedBox(
-            width: 312,
-            height: 48,
+            width: screenWidth * 0.64,
+            height: screenHeight * 0.046,
             child: Center(
               child: Text(
                 text.toUpperCase(),
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
-                  fontSize: 26,
+                  fontSize: screenHeight * 0.025,
                   fontFamily: 'Lato',
                   fontWeight: FontWeight.w700,
                   height: 0,
-                  letterSpacing: 1.20,
+                  letterSpacing: 1.2,
                 ),
               ),
             ),
