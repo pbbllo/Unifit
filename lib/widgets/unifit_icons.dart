@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:unifit/utils/constants.dart';
 
 class ResponsiveIcon extends StatelessWidget {
   final double heightFactor;
