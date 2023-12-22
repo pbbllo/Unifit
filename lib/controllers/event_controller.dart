@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:unifit/controllers/log_controller.dart';
+import 'package:unifit/utils/logging.dart';
 import 'package:unifit/enums/firebase_collection_enum.dart';
 import 'package:unifit/models/event.dart';
 import 'package:unifit/services/firebase_service.dart';
@@ -27,7 +27,7 @@ class EventController {
           .limit(documentLimit)
           .get();
     } else {
-      LogController.logInfo('Limit reached, loading more 20 items...');
+      Logging.logInfo('Limit reached, loading more 20 items...');
       querySnapshot = await FirebaseService.instance
           .getCollection(collection: FirebaseCollectionEnum.event)
           .startAfterDocument(lastDocument!)

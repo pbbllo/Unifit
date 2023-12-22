@@ -1,17 +1,6 @@
 import 'package:flutter/material.dart';
 // ignore_for_file: constant_identifier_names
 
-enum SignOutError {
-  userInvalidError('The user belongs to a diffent Firebase project.'),
-  userExpiredError('The user is expired'),
-  userNotFoundError('The user was not found.'),
-  userUnmatchError(
-      "User's tenant ID does not match the underlying Auth instance's configured tenant ID.");
-
-  final String message;
-  const SignOutError(this.message);
-}
-
 class AppStrings {
   static const String EMPTY = '';
   static const String TITLE = 'Unifit';
@@ -46,9 +35,6 @@ class AppStrings {
       'Um problema desconhecido foi encontrado.';
   static const String SCORE_CARD_TOOLTIP =
       'Participe de eventos e ganhe pontos, saiba mais na seção "Conquistas".';
-}
-
-class ErrorMessage {
   static const String UNDEFINED_MESSAGE =
       'Ocorreu um erro indefinido. Por favor, entre em contato com o suporte.';
   static const String INTERNAL_ERROR_MESSAGE =
@@ -66,26 +52,29 @@ class ErrorMessage {
       'Este endereço de e-mail já existe.';
   static const String USER_DISABLED_MESSAGE =
       'Usuário foi bloqueado pelo administrador.';
+}
 
-  static const String UNDEFINED_LOG = 'Undefined error';
-  static const String EMAIL_ALREADY_USED_LOG =
+class LoggingStrings {
+  static const String UNDEFINED_ERROR = 'Undefined error.';
+  static const String EMAIL_ALREADY_USED_ERROR =
       'The email address is not valid.';
-  static const String INVALID_EMAIL_LOG = 'Invalid email.';
-  static const String WRONG_PASSWORD_LOG = 'Wrong password.';
-  static const String WEAK_PASSWORD_LOG =
+  static const String INVALID_EMAIL_ERROR = 'Invalid email.';
+  static const String WRONG_PASSWORD_ERROR = 'Wrong password.';
+  static const String WEAK_PASSWORD_ERROR =
       'Provided password did not match with strong password requirements.';
-  static const String USER_NOT_FOUND_LOG = 'User not found.';
-  static const String USER_DISABLED_LOG = 'User is disabled';
-  static const String CREDENTIALS_FIREBASE_ERROR_LOG =
-      'Email/password accounts are not enabled. Enable email/password accounts in the Firebase Console, under the Auth tab.';
+  static const String USER_NOT_FOUND_ERROR = 'The user was not found.';
+  static const String USER_DISABLED_ERROR = 'User is disabled.';
+  static const String CREDENTIALS_FIREBASE_ERROR_ERROR =
+      'Email/password accounts are not enabled. Enable email/password accounts '
+      'in the Firebase Console, under the Auth tab.';
+  static const String USER_INVALID_ERROR =
+      'The user belongs to a diffent Firebase project.';
+  static const String USER_EXPIRED_ERROR = 'The user is expired.';
+  static const String USER_UNMATCH_ERROR = 'User\'s tenant ID does not match '
+      'the underlying Auth instance\'s configured tenant ID.';
 }
 
 class AppColors {
   static const Color MAIN_BLUE = Color(0xFF010C2D);
   static const Color MAIN_ORANGE = Color(0xFFFE7453);
-}
-
-class AppBoxes {
-  static const double DEFAULT_BOX = 15.0;
-  static const double ICON_MAIN_BOX = 25.0;
 }

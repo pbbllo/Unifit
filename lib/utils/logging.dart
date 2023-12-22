@@ -1,10 +1,10 @@
 import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 
-class LogController {
+class Logging {
   static final _instance = Logger();
 
-  LogController._();
+  Logging._();
   static void logWarning(String message) => _instance.w(
       "${DateFormat('yyyy-MM-dd hh:mm:ss').format(DateTime.now())}: $message");
   static void logInfo(String message) => _instance.i(

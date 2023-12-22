@@ -1,7 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:unifit/controllers/event_controller.dart';
-import 'package:unifit/controllers/log_controller.dart';
+import 'package:unifit/utils/logging.dart';
 import 'package:unifit/models/event.dart';
 import 'package:unifit/utils/constants.dart';
 import 'package:unifit/widgets/event_item.dart';
@@ -21,7 +20,7 @@ class _EventListViewState extends State<EventListView> {
 
   getEvents() async {
     if (!eventController.hasMore) {
-      LogController.logInfo('No more documents.');
+      Logging.logInfo('No more documents.');
       return;
     }
 
@@ -76,9 +75,8 @@ class _EventListViewState extends State<EventListView> {
                   itemCount: snapshot.data.length,
                   controller: eventController.scrollController,
                   itemBuilder: (_, index) {
-                    DocumentSnapshot documentSnapshot = snapshot.data[index];
                     Event currentEvent =
-                        Event.fromDocumentSnapshot(documentSnapshot);
+                        Event.fromDocumentSnapshot(snapshot.data[index]);
                     return EventItem(currentEvent);
                   });
             } else {
