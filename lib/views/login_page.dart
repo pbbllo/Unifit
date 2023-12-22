@@ -6,14 +6,14 @@ import 'package:unifit/widgets/gradient_button.dart';
 import 'package:unifit/widgets/signup_web.dart';
 import 'package:unifit/widgets/unifit_icons.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  _LoginViewState createState() => _LoginViewState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -37,20 +37,22 @@ class _LoginViewState extends State<LoginView> {
               const UnifitSportsIcon(),
               TextField(
                 controller: _emailController,
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   labelText: AppStrings.TYPE_YOUR_EMAIL,
                   labelStyle: TextStyle(
-                    color: AppColors.SALMON,
+                    color: AppColors.MAIN_ORANGE,
                   ),
                 ),
               ),
               TextField(
                 controller: _passwordController,
+                style: const TextStyle(color: Colors.white),
                 obscureText: true,
                 decoration: const InputDecoration(
                   labelText: AppStrings.TYPE_YOUR_PASSWORD,
                   labelStyle: TextStyle(
-                    color: AppColors.SALMON,
+                    color: AppColors.MAIN_ORANGE,
                   ),
                 ),
               ),
@@ -61,10 +63,10 @@ class _LoginViewState extends State<LoginView> {
                   child: const Text(
                     AppStrings.FORGOT_PASSWORD,
                     style: TextStyle(
-                      color: AppColors.SALMON,
+                      color: AppColors.MAIN_ORANGE,
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.underline,
-                      decorationColor: AppColors.SALMON,
+                      decorationColor: AppColors.MAIN_ORANGE,
                       decorationStyle: TextDecorationStyle.solid,
                     ),
                   ),
@@ -108,10 +110,10 @@ class _LoginViewState extends State<LoginView> {
                   const Text(
                     AppStrings.SIGN_UP,
                     style: TextStyle(
-                      color: AppColors.SALMON,
+                      color: AppColors.MAIN_ORANGE,
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.underline,
-                      decorationColor: AppColors.SALMON,
+                      decorationColor: AppColors.MAIN_ORANGE,
                       decorationStyle: TextDecorationStyle.solid,
                     ),
                   ),
@@ -140,4 +142,11 @@ class _LoginViewState extends State<LoginView> {
       // TODO: Feedback de erro
     }
   }
+
+  // @override
+  // void dispose() {
+  //   _usernameController.dispose();
+  //   _passwordController.dispose();
+  //   super.dispose();
+  // }
 }

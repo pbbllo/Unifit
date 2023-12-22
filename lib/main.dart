@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:unifit/firebase_options.dart';
-import 'package:unifit/views/home.dart';
-import 'package:unifit/views/login.dart';
-import 'package:unifit/views/presentation.dart';
+import 'package:unifit/views/home_page.dart';
+import 'package:unifit/views/login_page.dart';
+import 'package:unifit/views/presentation_page.dart';
 import 'utils/constants.dart';
 
 void main() async {
@@ -20,15 +20,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/home': (context) => const HomeView(title: 'Home Screen'),
-        '/login': (context) => const LoginView(),
+        '/home': (context) => const HomePage(),
+        '/login': (context) => const LoginPage(),
       },
       title: AppStrings.TITLE,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.MAIN_BLUE),
         useMaterial3: true,
       ),
-      home: Presentation(),
+      home: const PresentationPage(),
     );
   }
 }

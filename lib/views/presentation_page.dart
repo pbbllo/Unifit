@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:unifit/utils/constants.dart';
-import 'package:unifit/views/login.dart';
+import 'package:unifit/views/login_page.dart';
 import 'package:unifit/widgets/gradient_button.dart';
 
-class Presentation extends StatelessWidget {
-  const Presentation({Key? key}) : super(key: key);
+class PresentationPage extends StatelessWidget {
+  const PresentationPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,54 +49,56 @@ class _TransitionalPresentationState extends State<TransitionalPresentation> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Stack(children: <Widget>[
       AnimatedPositioned(
         duration: const Duration(seconds: 1),
         curve: Curves.easeInOut,
-        top: _showTopCenter
-            ? MediaQuery.of(context).size.height / 5
-            : MediaQuery.of(context).size.height / 3,
-        left: (MediaQuery.of(context).size.width - 320.0) / 2,
+        top: _showTopCenter ? screenHeight / 5 : screenHeight / 3,
+        left: (screenWidth - screenWidth * 0.65) / 2,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset('lib/assets/layers/sports_icons.png', width: 320.0),
-            Image.asset('lib/assets/layers/unifit_logo.png', width: 320.0),
+            Image.asset('lib/assets/layers/sports_icons.png',
+                width: screenWidth * 0.65),
+            Image.asset('lib/assets/layers/unifit_logo.png',
+                width: screenWidth * 0.65),
             _showText
                 ? Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const SizedBox(height: 25.0),
+                      SizedBox(height: screenHeight * 0.025),
                       SizedBox(
-                        height: 35,
-                        width: 312,
+                        height: screenHeight * 0.034,
+                        width: screenWidth * 0.65,
                         child: Text(
                           _welcomeText,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                              fontSize: 30.0,
+                          style: TextStyle(
+                              fontSize: screenHeight * 0.029,
                               color: Colors.white,
                               fontWeight: FontWeight.w700,
                               fontFamily: 'EncodeSans'),
                         ),
                       ),
-                      const SizedBox(height: 10.0),
+                      SizedBox(height: screenHeight * 0.01),
                       SizedBox(
-                        height: 100,
-                        width: 320,
+                        height: screenHeight * 0.1,
+                        width: screenWidth * 0.65,
                         child: Text(
                           _presentationText,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                              fontSize: 25.0,
+                          style: TextStyle(
+                              fontSize: screenHeight * 0.024,
                               color: Colors.white,
                               fontWeight: FontWeight.w200,
                               fontFamily: 'EncodeSans'),
                         ),
                       ),
                       SizedBox(
-                        height: 320,
-                        width: 320,
+                        height: screenHeight * 0.31,
+                        width: screenWidth * 0.65,
                         child: _presentationImage,
                       ),
                       GradientButton(
@@ -130,7 +132,7 @@ class _TransitionalPresentationState extends State<TransitionalPresentation> {
                               default:
                                 Navigator.of(context)
                                     .pushReplacement(MaterialPageRoute(
-                                  builder: (context) => const LoginView(),
+                                  builder: (context) => const LoginPage(),
                                 ));
                             }
                           });

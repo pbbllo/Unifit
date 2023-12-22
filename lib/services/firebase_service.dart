@@ -1,9 +1,56 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:unifit/enums/firebase_collection_enum.dart';
+import 'package:unifit/interfaces/firebase_service_interface.dart';
 
-abstract class IFirebaseService {
-  static final FirebaseFirestore firebaseInstance = FirebaseFirestore.instance;
+class FirebaseService implements IFirebaseService {
+  final CollectionReference _eventCollection = IFirebaseService.firebaseInstance
+      .collection(FirebaseCollectionEnum.event.name);
+  final CollectionReference _userCollection = IFirebaseService.firebaseInstance
+      .collection(FirebaseCollectionEnum.user.name);
 
-  Future<DocumentSnapshot> get({required String id});
-  Future<void> delete({required String id});
-  Future<void> put({required String id, dynamic value});
+  static final FirebaseService instance = FirebaseService._();
+
+  FirebaseService._();
+
+  CollectionReference getCollection(
+      {required FirebaseCollectionEnum collection}) {
+    switch (collection) {
+      case FirebaseCollectionEnum.event:
+        return _eventCollection;
+      case FirebaseCollectionEnum.user:
+        return _userCollection;
+    }
+  }
+
+  @override
+  Future<DocumentSnapshot<Object?>> get(
+      {required String id, required FirebaseCollectionEnum collection}) async {
+    DocumentSnapshot document =
+        await getCollection(collection: collection).doc(id).get();
+    return document;
+  }
+
+  @override
+  Future<void> set(
+      {required String id,
+      value,
+      required FirebaseCollectionEnum collection}) async {
+    await getCollection(collection: collection).doc(id).set(value);
+  }
+
+  @override
+  Future<void> update(
+      {required String id,
+      value,
+      required FirebaseCollectionEnum collection}) async {
+    await getCollection(collection: collection).doc(id).update(value);
+  }
+
+  @override
+  Future<void> delete(
+      {required String id,
+      value,
+      required FirebaseCollectionEnum collection}) async {
+    await getCollection(collection: collection).doc(id).delete();
+  }
 }

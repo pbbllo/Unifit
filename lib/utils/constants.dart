@@ -13,6 +13,7 @@ enum SignOutError {
 }
 
 class AppStrings {
+  static const String EMPTY = '';
   static const String TITLE = 'Unifit';
   static const String NEXT = 'Próximo';
   static const String SIGN_IN = 'ENTRAR';
@@ -31,6 +32,20 @@ class AppStrings {
   static const String FORGOT_PASSWORD = 'Esqueceu sua senha?';
   static const String SIGN_IN_SOCIAL_MEDIA = 'Ou entrar com uma conta social';
   static const String NEW_HERE = 'Novo por aqui?';
+  static const String SEARCH_HINT_TEXT = 'Buscar eventos';
+  static const String HOME = 'Início';
+  static const String CALENDAR = 'Calendário';
+  static const String ACHIEVEMENTS = 'Conquistas';
+  static const String PROFILE = 'Perfil';
+  static const String EVENTS = 'Eventos';
+  static const String POSTS = 'Publicações';
+  static const String NO_CONNECTION = 'Sem conexão.';
+  static const String LOADING = 'Carregando...';
+  static const String NO_DATA_TO_LOAD = 'Não há dados para carregar.';
+  static const String UNKNOWN_PROBLEM =
+      'Um problema desconhecido foi encontrado.';
+  static const String SCORE_CARD_TOOLTIP =
+      'Participe de eventos e ganhe pontos, saiba mais na seção "Conquistas".';
 }
 
 class ErrorMessage {
@@ -67,7 +82,7 @@ class ErrorMessage {
 
 class AppColors {
   static const Color MAIN_BLUE = Color(0xFF010C2D);
-  static const Color SALMON = Color(0xFFFE7453);
+  static const Color MAIN_ORANGE = Color(0xFFFE7453);
 }
 
 class AppBoxes {
