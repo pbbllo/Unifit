@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:unifit/enums/firebase_collection_enum.dart';
 import 'package:unifit/models/user_data.dart';
 import 'package:unifit/services/firebase_service.dart';
-import 'package:unifit/utils/exception_handler.dart';
+import 'package:unifit/utils/exception_handlers.dart';
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

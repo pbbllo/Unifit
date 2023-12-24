@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 // ignore_for_file: constant_identifier_names
 
+const String APP_LOCALE = 'pt_BR';
+
 class AppStrings {
   static const String EMPTY = '';
   static const String TITLE = 'Unifit';

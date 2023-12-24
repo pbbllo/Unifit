@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unifit/utils/constants.dart';
-import 'package:unifit/views/event_view.dart';
+import 'package:unifit/views/event_list_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
