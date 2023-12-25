@@ -6,7 +6,9 @@ class AppStrings {
   static const String TITLE = 'Unifit';
   static const String NEXT = 'Próximo';
   static const String SIGN_IN = 'ENTRAR';
-  static const String SIGN_UP = 'Registre-se de graça!';
+  static const String SIGN_UP = 'REGISTRAR';
+  static const String SIGN_UP_FREE = 'Registre-se de graça!';
+  static const String BACK_TO_LOGIN = 'VOLTAR AO LOGIN';
   static const String WELCOME_TEXT = 'Bem vindo ao UnitFit.';
   static const String PRESENTATION_TEXT1 =
       'A aplicação perfeita para interação universitária '
@@ -16,11 +18,17 @@ class AppStrings {
   static const String PRESENTATION_TEXT3 =
       'Acompanhe e também compartilhe seu progresso diário com seus amigos!';
   static const String PRESENTATION_TEXT4 = 'E muito mais! Vamos descobrir?';
+  static const String TYPE_YOUR_NAME = 'Digite seu nome:';
+  static const String TYPE_YOUR_COURSE = 'Digite seu curso:';
   static const String TYPE_YOUR_EMAIL = 'Digite seu email:';
   static const String TYPE_YOUR_PASSWORD = 'Digite sua senha:';
+  static const String REPEAT_YOUR_PASSWORD = 'Repita sua senha:';
   static const String FORGOT_PASSWORD = 'Esqueceu sua senha?';
   static const String SIGN_IN_SOCIAL_MEDIA = 'Ou entrar com uma conta social';
   static const String NEW_HERE = 'Novo por aqui?';
+  static const String SUCCESS_TEXT = 'Sucesso!';
+  static const String REGISTER_MESSAGE_TEXT1 =
+      'Seu cadastro foi realizado com sucesso.\nVamos começar!';
   static const String SEARCH_HINT_TEXT = 'Buscar eventos';
   static const String HOME = 'Início';
   static const String CALENDAR = 'Calendário';

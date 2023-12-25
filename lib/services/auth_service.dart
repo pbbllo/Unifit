@@ -2,18 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:unifit/enums/firebase_collection_enum.dart';
 import 'package:unifit/models/user_data.dart';
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-import 'package:unifit/services/user_service.dart';
-import 'package:unifit/controllers/error_controller.dart';
-=======
 import 'package:unifit/services/firebase_service.dart';
 import 'package:unifit/utils/exception_handlers.dart';
->>>>>>> Stashed changes
-=======
-import 'package:unifit/services/firebase_service.dart';
-import 'package:unifit/utils/exception_handler.dart';
->>>>>>> 74ee49285257b01f5d618e87370594deb2f8686b
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
