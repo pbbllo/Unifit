@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:unifit/enums/firebase_collection_enum.dart';
 import 'package:unifit/models/user_data.dart';
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 import 'package:unifit/services/user_service.dart';
 import 'package:unifit/controllers/error_controller.dart';
@@ -8,6 +10,10 @@ import 'package:unifit/controllers/error_controller.dart';
 import 'package:unifit/services/firebase_service.dart';
 import 'package:unifit/utils/exception_handlers.dart';
 >>>>>>> Stashed changes
+=======
+import 'package:unifit/services/firebase_service.dart';
+import 'package:unifit/utils/exception_handler.dart';
+>>>>>>> 74ee49285257b01f5d618e87370594deb2f8686b
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -22,7 +28,7 @@ class Auth {
         .createUserWithEmailAndPassword(email: email.trim(), password: password)
         .then((credential) => credential)
         .catchError(
-            (error) => throw ErrorHandlerController.signUpErrorHandling(error));
+            (error) => throw ExceptionHandler.signUpErrorHandling(error));
 
     firebaseUser = userCredential.user;
 
@@ -33,8 +39,10 @@ class Auth {
           .set({});
       IUser userData = UserData(email: email, name: name);
 
-      await UserFirebaseService.instance
-          .put(id: firebaseUser.uid, value: userData.toJson());
+      await FirebaseService.instance.update(
+          id: firebaseUser.uid,
+          value: userData.toJson(),
+          collection: FirebaseCollectionEnum.user);
 
       await firebaseUser.sendEmailVerification();
     } else {
@@ -49,13 +57,14 @@ class Auth {
         .signInWithEmailAndPassword(email: email.trim(), password: password)
         .then((credential) => credential)
         .catchError(
-            (error) => throw ErrorHandlerController.signInErrorHandling(error));
+            (error) => throw ExceptionHandler.signInErrorHandling(error));
     return userCredential.user;
   }
 
   void signOut() {
-    FirebaseAuth.instance.signOut().catchError(
-        (error) => ErrorHandlerController.singOutErrorHandling(error));
+    FirebaseAuth.instance
+        .signOut()
+        .catchError((error) => ExceptionHandler.singOutErrorHandling(error));
   }
 
   Future<void> resetPassword(String email) async {
