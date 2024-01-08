@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unifit/utils/constants.dart';
-import 'package:unifit/views/login_page.dart';
+import 'package:unifit/views/login_view.dart';
 import 'package:unifit/widgets/gradient_button.dart';
 
 class PresentationPage extends StatelessWidget {
@@ -132,7 +132,7 @@ class _TransitionalPresentationState extends State<TransitionalPresentation> {
                               default:
                                 Navigator.of(context)
                                     .pushReplacement(MaterialPageRoute(
-                                  builder: (context) => const LoginPage(),
+                                  builder: (context) => const LoginView(),
                                 ));
                             }
                           });
