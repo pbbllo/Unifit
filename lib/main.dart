@@ -2,8 +2,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:unifit/firebase_options.dart';
 import 'package:unifit/views/home_page.dart';
-import 'package:unifit/views/login_page.dart';
+import 'package:unifit/views/login_view.dart';
 import 'package:unifit/views/presentation_page.dart';
+import 'package:unifit/views/register.dart';
+import 'package:unifit/views/register_message_page.dart';
+import 'package:unifit/views/register_options_page.dart';
 import 'utils/constants.dart';
 
 void main() async {
@@ -21,7 +24,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         '/home': (context) => const HomePage(),
-        '/login': (context) => const LoginPage(),
+        '/login': (context) => const LoginView(),
+        '/register': (context) => const SignUpView(),
+        '/finished': (context) => const RegisterMessagePage(),
+        '/register_options': (context) => const RegisterOptionsView(),
       },
       title: AppStrings.TITLE,
       theme: ThemeData(

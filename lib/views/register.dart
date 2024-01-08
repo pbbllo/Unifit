@@ -1,18 +1,17 @@
-import 'package:flutter/material.dart';
-import 'package:unifit/utils/constants.dart';
-import 'package:unifit/widgets/unifit_icons.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:unifit/services/auth_service.dart';
+import 'package:unifit/utils/constants.dart';
 import 'package:unifit/widgets/gradient_button.dart';
 
-class RegisterView extends StatefulWidget {
-  const RegisterView({Key? key}) : super(key: key);
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
 
   @override
-  _RegisterViewState createState() => _RegisterViewState();
+  _SignUpViewState createState() => _SignUpViewState();
 }
 
-class _RegisterViewState extends State<RegisterView> {
+class _SignUpViewState extends State<SignUpView> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _courseController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -21,149 +20,85 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: AppColors.MAIN_BLUE,
       body: Padding(
-        padding: EdgeInsets.only(
-          top: screenHeight * 0.10,
-          left: screenWidth * 0.08,
-          right: screenWidth * 0.08,
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const UnifitIcon(),
-              SizedBox(
-                height: screenHeight * 0.06,
+        padding: const EdgeInsets.all(30.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('lib/assets/layers/unifit_logo.png', width: 320.0),
+            TextField(
+              style: const TextStyle(
+                color: Colors.white,
               ),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  AppStrings.TYPE_YOUR_NAME,
-                  style: TextStyle(
-                    color: AppColors.MAIN_ORANGE,
+              controller: _usernameController,
+              decoration: const InputDecoration(
+                labelText: 'Digite seu nome:',
+                labelStyle: TextStyle(color: AppColors.MAIN_ORANGE),
+              ),
+            ),
+            TextField(
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+              cursorColor: Colors.white,
+              controller: _courseController,
+              decoration: const InputDecoration(
+                labelText: 'Digite seu curso:',
+                labelStyle: TextStyle(color: AppColors.MAIN_ORANGE),
+              ),
+            ),
+            TextField(
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+              controller: _emailController,
+              decoration: const InputDecoration(
+                labelText: 'Digite seu email:',
+                labelStyle: TextStyle(color: AppColors.MAIN_ORANGE),
+              ),
+            ),
+            TextField(
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                labelText: 'Digite sua senha:',
+                labelStyle: TextStyle(color: AppColors.MAIN_ORANGE),
+              ),
+            ),
+            TextField(
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+              controller: _repasswordController,
+              decoration: const InputDecoration(
+                labelText: 'Repita sua senha:',
+                labelStyle: TextStyle(color: AppColors.MAIN_ORANGE),
+              ),
+            ),
+            const SizedBox(height: 0.5),
+            SingleChildScrollView(
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 130.0,
+                    vertical: 20.0,
                   ),
                 ),
-              ),
-              TextField(
-                controller: _usernameController,
-                style: const TextStyle(
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                child: GradientButton(
+                  text: 'REGISTRAR',
+                  onPressed: _signUp,
                 ),
               ),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  AppStrings.TYPE_YOUR_COURSE,
-                  style: TextStyle(
-                    color: AppColors.MAIN_ORANGE,
-                  ),
-                ),
-              ),
-              TextField(
-                controller: _courseController,
-                style: const TextStyle(
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  AppStrings.TYPE_YOUR_EMAIL,
-                  style: TextStyle(
-                    color: AppColors.MAIN_ORANGE,
-                  ),
-                ),
-              ),
-              TextField(
-                controller: _emailController,
-                style: const TextStyle(
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  AppStrings.TYPE_YOUR_PASSWORD,
-                  style: TextStyle(
-                    color: AppColors.MAIN_ORANGE,
-                  ),
-                ),
-              ),
-              TextField(
-                controller: _passwordController,
-                style: const TextStyle(
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  AppStrings.REPEAT_YOUR_PASSWORD,
-                  style: TextStyle(
-                    color: AppColors.MAIN_ORANGE,
-                  ),
-                ),
-              ),
-              TextField(
-                controller: _repasswordController,
-                style: const TextStyle(
-                  color: Colors.black,
-                ),
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: screenHeight * 0.02,
-              ),
-              GradientButton(
-                text: AppStrings.SIGN_UP,
-                onPressed: _signUp,
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -181,9 +116,7 @@ class _RegisterViewState extends State<RegisterView> {
       return null;
     });
 
-    if (user != null) {
-      Auth.instance.signIn(email, password);
-      Navigator.of(context).popAndPushNamed('/home');
+    Auth.instance.signIn(email, password);
+    Navigator.of(context).popAndPushNamed('/home');
     }
-  }
 }

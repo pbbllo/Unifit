@@ -17,6 +17,5 @@ class DefaultLoadingIndicator extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }

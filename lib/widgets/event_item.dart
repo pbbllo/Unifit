@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unifit/controllers/event_controller.dart';
 import 'package:unifit/models/event.dart';
-import 'package:unifit/services/firebase_service.dart';
 import 'package:unifit/utils/constants.dart';
 import 'package:unifit/widgets/score_card.dart';
 

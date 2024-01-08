@@ -32,6 +32,7 @@ class AppStrings {
       'Verifique seu e-mail antes de fazer login. Um link de verificação foi enviado.\nVamos começar!';
   static const String REGISTER_MESSAGE_TEXT2 = 'Registre-se usando seu e-mail';
   static const String REGISTER_MESSAGE_TEXT3 = 'ou através de contas sociais';
+  static const String CONTINUE_SIGN_IN_TEXT = 'Continue como';
   static const String SEARCH_HINT_TEXT = 'Buscar eventos';
   static const String HOME = 'Início';
   static const String CALENDAR = 'Calendário';
@@ -88,4 +89,7 @@ class LoggingStrings {
 class AppColors {
   static const Color MAIN_BLUE = Color(0xFF010C2D);
   static const Color MAIN_ORANGE = Color(0xFFFE7453);
+  static const Color MAIN_WHITE = Color(0xFFFFFFFF);
+  static const Color MAIN_RED = Color(0xFFEB2836);
+  static const Color MAIN_ROYAL_BLUE = Color(0xFF3F7DE8);
 }

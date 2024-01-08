@@ -7,7 +7,7 @@ import 'package:unifit/widgets/signup_web.dart';
 import 'package:unifit/widgets/unifit_icons.dart';
 
 class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+  const LoginView({super.key});
 
   @override
   LoginViewState createState() => LoginViewState();

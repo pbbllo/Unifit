@@ -4,7 +4,7 @@ import 'package:unifit/views/login_view.dart';
 import 'package:unifit/widgets/gradient_button.dart';
 
 class PresentationPage extends StatelessWidget {
-  const PresentationPage({Key? key}) : super(key: key);
+  const PresentationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class PresentationPage extends StatelessWidget {
 }
 
 class TransitionalPresentation extends StatefulWidget {
-  const TransitionalPresentation({Key? key}) : super(key: key);
+  const TransitionalPresentation({super.key});
 
   @override
   State<TransitionalPresentation> createState() =>

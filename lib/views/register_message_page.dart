@@ -50,8 +50,8 @@ class RegisterMessagePage extends StatelessWidget {
               height: screenHeight * 0.02,
             ),
             GradientButton(
-              onPressed: () => Navigator.of(context).popAndPushNamed('/login'),
               text: AppStrings.BACK_TO_LOGIN,
+              onPressed: () => Navigator.of(context).popAndPushNamed('/login'),
             ),
           ],
         ),
