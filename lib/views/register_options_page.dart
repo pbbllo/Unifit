@@ -1,13 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:unifit/services/auth_service.dart';
 import 'package:unifit/utils/constants.dart';
-import 'package:unifit/views/register.dart';
+import 'package:unifit/views/web_page.dart';
 import 'package:unifit/widgets/gradient_button.dart';
 import 'package:unifit/widgets/signup_web.dart';
+import 'package:unifit/utils/logging.dart';
 import 'package:unifit/widgets/unifit_icons.dart';
 
-class RegisterOptionsPage extends StatelessWidget {
-  const RegisterOptionsPage({super.key});
+class RegisterOptionsView extends StatefulWidget {
+  const RegisterOptionsView({super.key});
 
+  @override
+  RegisterOptionsViewState createState() => RegisterOptionsViewState();
+}
+
+class RegisterOptionsViewState extends State<RegisterOptionsView> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -59,8 +67,8 @@ class RegisterOptionsPage extends StatelessWidget {
               height: screenHeight * 0.02,
             ),
             SignInWebIcon(
-              onPressedFacebook: signUpFacebook,
-              onPressedGoogle: signUpGoogle,
+              onPressedFacebook: () {},
+              onPressedGoogle: _joinWithGoogleAccount,
             ),
           ],
         ),
@@ -68,6 +76,30 @@ class RegisterOptionsPage extends StatelessWidget {
     );
   }
 
-  void signUpGoogle() {}
+  void _joinWithGoogleAccount() async {
+    try {
+      final user = await Auth.instance.signInWithGoogle();
+      if (user != null && mounted) {
+        String? userName = user.displayName;
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => WebPage(
+              text: '${AppStrings.CONTINUE_SIGN_IN_TEXT} $userName',
+              color: AppColors.MAIN_RED,
+            ),
+          ),
+        );
+      }
+      // ignore: empty_catches
+    } on FirebaseAuthException catch (error) {
+      //TODO IMPLEMENTATION
+      Logging.logError(error.message.toString());
+    } catch (error) {
+      //TODO IMPLEMENTATION
+      //Needs to show to user, this way we only showing on terminal
+      Logging.logError(error.toString());
+    }
+  }
+
   void signUpFacebook() {}
 }

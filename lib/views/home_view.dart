@@ -40,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
           ],
         ),
         <Widget>[
-          EventListView(),
+          const EventListView(),
           const Text('Publicações', style: optionStyle)
         ][_selectedNavBarIndex]
       ]),

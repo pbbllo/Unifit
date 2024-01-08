@@ -2,12 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:unifit/services/auth_service.dart';
 import 'package:unifit/utils/constants.dart';
+import 'package:unifit/utils/logging.dart';
+import 'package:unifit/views/web_page.dart';
 import 'package:unifit/widgets/gradient_button.dart';
 import 'package:unifit/widgets/signup_web.dart';
 import 'package:unifit/widgets/unifit_icons.dart';
 
 class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+  const LoginView({super.key});
 
   @override
   LoginViewState createState() => LoginViewState();
@@ -21,6 +23,7 @@ class LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
+    User? user;
 
     return Scaffold(
         backgroundColor: AppColors.MAIN_BLUE,
@@ -118,7 +121,7 @@ class LoginViewState extends State<LoginView> {
                     ),
                   ),
                 ),
-                const SignInWebIcon(),
+                SignInWebIcon(onPressedGoogle: _joinWithGoogleAccount),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -164,6 +167,31 @@ class LoginViewState extends State<LoginView> {
       Navigator.of(context).popAndPushNamed('/home');
     } else {
       // TODO: Feedback de erro
+    }
+  }
+
+  void _joinWithGoogleAccount() async {
+    try {
+      final user = await Auth.instance.signInWithGoogle();
+      if (user != null && mounted) {
+        String? userName = user.displayName;
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => WebPage(
+              text: '${AppStrings.CONTINUE_SIGN_IN_TEXT} $userName',
+              color: AppColors.MAIN_RED,
+            ),
+          ),
+        );
+      }
+      // ignore: empty_catches
+    } on FirebaseAuthException catch (error) {
+      //TODO IMPLEMENTATION
+      Logging.logError(error.message.toString());
+    } catch (error) {
+      //TODO IMPLEMENTATION
+      //Needs to show to user, this way we only showing on terminal
+      Logging.logError(error.toString());
     }
   }
 
