@@ -130,7 +130,11 @@ class LoginViewState extends State<LoginView> {
                     ),
                     TextButton(
                       onPressed: () =>
+<<<<<<< HEAD
                           Navigator.of(context).pushNamed('/register_options'),
+=======
+                          Navigator.of(context).pushNamed('/register'),
+>>>>>>> 4afa536157bce5590ff7df33e8da575072f334b7
                       child: const Text(
                         AppStrings.SIGN_UP_FREE,
                         style: TextStyle(

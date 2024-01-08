@@ -27,11 +27,16 @@ class AppStrings {
   static const String SIGN_IN_SOCIAL_MEDIA = 'Ou entrar com uma conta social';
   static const String NEW_HERE = 'Novo por aqui?';
   static const String SUCCESS_TEXT = 'Sucesso!';
+<<<<<<< HEAD
   static const String REGISTER_WITH_EMAIL = 'CADASTRAR EMAIL';
   static const String REGISTER_MESSAGE_TEXT1 =
       'Verifique seu e-mail antes de fazer login. Um link de verificação foi enviado.\nVamos começar!';
   static const String REGISTER_MESSAGE_TEXT2 = 'Registre-se usando seu e-mail';
   static const String REGISTER_MESSAGE_TEXT3 = 'ou através de contas sociais';
+=======
+  static const String REGISTER_MESSAGE_TEXT1 =
+      'Seu cadastro foi realizado com sucesso.\nVamos começar!';
+>>>>>>> 4afa536157bce5590ff7df33e8da575072f334b7
   static const String SEARCH_HINT_TEXT = 'Buscar eventos';
   static const String HOME = 'Início';
   static const String CALENDAR = 'Calendário';
