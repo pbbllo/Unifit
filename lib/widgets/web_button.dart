@@ -20,17 +20,22 @@ class WebButton extends StatelessWidget {
           }
         },
         child: Ink(
-          color: color,
+          decoration: ShapeDecoration(
+            color: color,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+          ),
           child: SizedBox(
-            width: screenWidth * 0.64,
-            height: screenHeight * 0.046,
+            width: screenWidth * 0.69,
+            height: screenHeight * 0.047,
             child: Center(
               child: Text(
-                text.toUpperCase(),
+                text,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
-                  fontSize: screenHeight * 0.025,
+                  fontSize: 15,
                   fontFamily: 'Lato',
                   fontWeight: FontWeight.w700,
                   height: 0,

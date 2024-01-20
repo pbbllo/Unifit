@@ -7,6 +7,7 @@ class AppStrings {
   static const String NEXT = 'Próximo';
   static const String SIGN_IN = 'ENTRAR';
   static const String SIGN_UP = 'REGISTRAR';
+  static const String CANCEL = 'Cancelar';
   static const String SIGN_UP_FREE = 'Registre-se de graça!';
   static const String BACK_TO_LOGIN = 'VOLTAR AO LOGIN';
   static const String WELCOME_TEXT = 'Bem vindo ao UnitFit.';
@@ -32,7 +33,13 @@ class AppStrings {
       'Verifique seu e-mail antes de fazer login. Um link de verificação foi enviado.\nVamos começar!';
   static const String REGISTER_MESSAGE_TEXT2 = 'Registre-se usando seu e-mail';
   static const String REGISTER_MESSAGE_TEXT3 = 'ou através de contas sociais';
-  static const String CONTINUE_SIGN_IN_TEXT = 'Continue como';
+  static const String REGISTER_MESSAGE_TEXT4 =
+      'Unifit receberá:\n suas permissões para perfil público e endereço de email';
+  static const String CONTINUE_SIGN_IN_TEXT = 'Continuar como';
+  static const String TERMS_MESSAGE_TEXT1 =
+      'O Unifit não divulga os dados coletados para terceiros';
+  static const String TERMS_MESSAGE_TEXT2 =
+      'Termos do Aplicativo - Política de Privacidade';
   static const String SEARCH_HINT_TEXT = 'Buscar eventos';
   static const String HOME = 'Início';
   static const String CALENDAR = 'Calendário';
@@ -90,6 +97,8 @@ class AppColors {
   static const Color MAIN_BLUE = Color(0xFF010C2D);
   static const Color MAIN_ORANGE = Color(0xFFFE7453);
   static const Color MAIN_WHITE = Color(0xFFFFFFFF);
+  static const Color MAIN_BLACK = Color(0xFF000000);
+  static const Color MAIN_GRAY = Color(0xFF52522B);
   static const Color MAIN_RED = Color(0xFFEB2836);
   static const Color MAIN_ROYAL_BLUE = Color(0xFF3F7DE8);
 }
