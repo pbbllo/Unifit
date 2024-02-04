@@ -43,6 +43,7 @@ dependencies:
   firebase_storage: ^11.5.5
   intl: ^0.17.0
   logger: ^2.0.2+1
+  sprintf: "^7.0.0"
 
 dev_dependencies:
   flutter_test:

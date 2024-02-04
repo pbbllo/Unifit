@@ -6,11 +6,18 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:unifit/utils/extensions.dart';
 
 class Utils {
+  /// Utilities for the application.
+
   static String timestampToString(
       {required Timestamp timestamp,
       DateFormatEnum format = DateFormatEnum.inFull,
       String separator = '/',
       String locale = APP_LOCALE}) {
+    /// Receives a [timestamp] and converts it to a String in the preferred
+    /// [format] according to the provided Intl [locale].
+    ///
+    /// If a [locale] is not provided,the default locale will be used.
+    /// A custom [separator] can be provided as well. Defaults to '/'.
     DateTime dateTime = timestamp.toDate();
 
     initializeDateFormatting(locale);

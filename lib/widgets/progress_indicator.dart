@@ -13,7 +13,14 @@ class DefaultLoadingIndicator extends StatelessWidget {
           SizedBox(height: screenHeight * 0.025),
           const CircularProgressIndicator(),
           SizedBox(height: screenHeight * 0.025),
-          const Text(AppStrings.LOADING)
+          Text(
+            AppStrings.LOADING,
+            style: TextStyle(
+              color: AppColors.MAIN_BLUE,
+              decoration: TextDecoration.none,
+              fontSize: screenHeight * 0.02,
+            ),
+          )
         ],
       ),
     );

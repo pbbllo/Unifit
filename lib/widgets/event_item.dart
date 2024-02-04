@@ -9,6 +9,7 @@ import 'package:unifit/views/event_page.dart';
 import 'package:unifit/widgets/score_card.dart';
 
 class EventItem extends StatefulWidget {
+  /// Card with short event details, to be shown in an event list view.
   final Event event;
 
   const EventItem(this.event, {super.key});
@@ -80,11 +81,12 @@ class _EventItemState extends State<EventItem> {
                             ],
                           ),
                           // Event location
-                          Row(
+                          const Row(
                             children: <Widget>[
-                              const Icon(Icons.location_on),
+                              Icon(Icons.location_on),
                               Text(
-                                widget.event.description,
+                                // TODO: Add the reference to the location.
+                                'Localização',
                                 style: const TextStyle(color: Colors.blue),
                               ),
                             ],

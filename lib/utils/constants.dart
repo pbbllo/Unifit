@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 const String APP_LOCALE = 'pt_BR';
 
 class AppStrings {
+  /// Application strings.
+  /// Interpolation can be used alongside [format] method
+  /// extension on [utils.extensions.StringExtension] file.
   static const String EMPTY = '';
   static const String TITLE = 'Unifit';
   static const String NEXT = 'Próximo';
@@ -54,9 +57,11 @@ class AppStrings {
       'Este endereço de e-mail já existe.';
   static const String USER_DISABLED_MESSAGE =
       'Usuário foi bloqueado pelo administrador.';
+  static const String EVENT_DATE = 'Data do Evento: %s.';
 }
 
 class LoggingStrings {
+  /// Application error or warning messages.
   static const String UNDEFINED_ERROR = 'Undefined error.';
   static const String EMAIL_ALREADY_USED_ERROR =
       'The email address is not valid.';

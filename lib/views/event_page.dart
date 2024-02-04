@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:unifit/enums/date_format_enum.dart';
 import 'package:unifit/models/event.dart';
 import 'package:unifit/utils/constants.dart';
+import 'package:unifit/utils/extensions.dart';
 import 'package:unifit/utils/utils.dart';
+import 'package:unifit/views/event_comment_list_view.dart';
 
 class EventPage extends StatelessWidget {
-  const EventPage({super.key, required this.event});
+  /// Page that shows the complete details of an event.
+  EventPage({super.key, required this.event});
   final Event event;
+  final TextEditingController _commentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,36 +22,58 @@ class EventPage extends StatelessWidget {
       color: Colors.white,
       child: Center(
         child: Container(
-          height: screenHeight * 0.8,
+          height: screenHeight * 0.9,
           width: screenWidth * 0.8,
           decoration: BoxDecoration(border: Border.all(width: 1)),
           child: Column(
             children: <Widget>[
               Row(
                 children: [
-                  Text(
-                    event.title,
-                    style: TextStyle(
-                      color: AppColors.MAIN_BLUE,
-                      decoration: TextDecoration.none,
-                      fontSize: screenHeight * 0.05,
-                      fontFamily: 'Lato',
-                      fontWeight: FontWeight.w700,
-                      height: 0,
-                      letterSpacing: 1.2,
+                  Flexible(
+                    child: Text(
+                      event.title,
+                      style: TextStyle(
+                        color: AppColors.MAIN_BLUE,
+                        decoration: TextDecoration.none,
+                        fontSize: screenHeight * 0.035,
+                        fontFamily: 'Lato',
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 1.2,
+                      ),
                     ),
+                  ),
+                  Column(
+                    children: [
+                      Icon(
+                        Icons.calendar_month,
+                        color: AppColors.MAIN_BLUE,
+                        size: screenHeight * 0.05,
+                      ),
+                      Text(
+                        Utils.timestampToString(
+                            timestamp: event.eventDate,
+                            format: DateFormatEnum.ddmm),
+                        style: TextStyle(
+                            fontSize: screenHeight * 0.015,
+                            decoration: TextDecoration.none),
+                      )
+                    ],
                   )
                 ],
               ),
               Row(
                 children: <Widget>[
-                  const Icon(Icons.location_on),
+                  Icon(
+                    Icons.location_on,
+                    size: screenHeight * 0.015,
+                  ),
                   Text(
-                    event.description,
+                    // TODO: Add the reference to the location.
+                    'Localização',
                     style: TextStyle(
                       color: Colors.blue,
                       decoration: TextDecoration.none,
-                      fontSize: screenHeight * 0.02,
+                      fontSize: screenHeight * 0.015,
                     ),
                   ),
                 ],
@@ -59,12 +86,16 @@ class EventPage extends StatelessWidget {
               SizedBox(height: screenHeight * 0.01),
               Row(
                 children: [
-                  Text(
-                    event.description,
-                    style: TextStyle(
-                      color: AppColors.MAIN_BLUE,
-                      decoration: TextDecoration.none,
-                      fontSize: screenHeight * 0.02,
+                  Flexible(
+                    child: Text(
+                      event.description,
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(
+                          color: AppColors.MAIN_BLUE,
+                          decoration: TextDecoration.none,
+                          fontSize: screenHeight * 0.014,
+                          fontWeight: FontWeight.normal,
+                          fontFamily: 'Roboto'),
                     ),
                   ),
                 ],
@@ -73,7 +104,8 @@ class EventPage extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    'Data do Evento: ${Utils.timestampToString(timestamp: event.eventDate)}',
+                    AppStrings.EVENT_DATE.format(
+                        [Utils.timestampToString(timestamp: event.eventDate)]),
                     style: TextStyle(
                       color: AppColors.MAIN_BLUE,
                       decoration: TextDecoration.none,
@@ -82,6 +114,28 @@ class EventPage extends StatelessWidget {
                   ),
                 ],
               ),
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(
+                      'Comentários',
+                      style: TextStyle(
+                          color: AppColors.MAIN_BLUE,
+                          decoration: TextDecoration.none,
+                          fontSize: screenHeight * 0.02,
+                          fontFamily: 'Roboto'),
+                    ),
+                    //Container(),
+                    EventCommentListView(event: event),
+                    Container(
+                      child: Row(),
+                      height: screenHeight * 0.075,
+                      decoration: BoxDecoration(border: Border.all(width: 1)),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),
