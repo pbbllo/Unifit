@@ -16,8 +16,8 @@ class ProfilePicture {
     //TODO
   }
 
-  Future getImage() async {
-    //TODO
+  String getImage() {
+    return _firebaseUser?.photoURL ?? '';
   }
 
   Future setImage(Function refreshState) async {

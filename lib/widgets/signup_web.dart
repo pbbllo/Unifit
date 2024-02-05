@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class SignInWebIcon extends StatelessWidget {
-  const SignInWebIcon({super.key});
+  final VoidCallback? onPressedFacebook;
+  final VoidCallback? onPressedGoogle;
+  const SignInWebIcon({
+    super.key,
+    this.onPressedGoogle,
+    this.onPressedFacebook,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +19,7 @@ class SignInWebIcon extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           InkWell(
-            onTap: () {}, //TODO IMPLEMENTATION
+            onTap: onPressedFacebook, //TODO IMPLEMENTATION
             child: Image.asset(
               'lib/assets/layers/facebook_icon.png',
               height: screenHeight * 0.10,
@@ -24,7 +30,7 @@ class SignInWebIcon extends StatelessWidget {
             width: screenHeight * 0.05,
           ),
           InkWell(
-            onTap: () {}, //TODO IMPLEMENTATION
+            onTap: onPressedGoogle, //TODO IMPLEMENTATION
             child: Image.asset(
               'lib/assets/layers/google_icon.png',
               height: screenHeight * 0.10,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:unifit/utils/constants.dart';
-import 'package:unifit/views/login_page.dart';
+import 'package:unifit/views/login_view.dart';
 import 'package:unifit/widgets/gradient_button.dart';
 
 class PresentationPage extends StatelessWidget {
-  const PresentationPage({Key? key}) : super(key: key);
+  const PresentationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class PresentationPage extends StatelessWidget {
 }
 
 class TransitionalPresentation extends StatefulWidget {
-  const TransitionalPresentation({Key? key}) : super(key: key);
+  const TransitionalPresentation({super.key});
 
   @override
   State<TransitionalPresentation> createState() =>
@@ -132,7 +132,7 @@ class _TransitionalPresentationState extends State<TransitionalPresentation> {
                               default:
                                 Navigator.of(context)
                                     .pushReplacement(MaterialPageRoute(
-                                  builder: (context) => const LoginPage(),
+                                  builder: (context) => const LoginView(),
                                 ));
                             }
                           });

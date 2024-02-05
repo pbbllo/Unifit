@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:unifit/enums/firebase_collection_enum.dart';
 import 'package:unifit/models/user_data.dart';
 import 'package:unifit/services/firebase_service.dart';
-import 'package:unifit/utils/exception_handler.dart';
+import 'package:unifit/utils/exception_handlers.dart';
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -59,5 +60,18 @@ class Auth {
 
   Future<void> resetPassword(String email) async {
     await _firebaseAuth.sendPasswordResetEmail(email: email);
+  }
+
+  Future<User?> signInWithGoogle() async {
+    final googleAccount = await GoogleSignIn().signIn();
+    final googleAuth = await googleAccount?.authentication;
+    final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
+
+    final userCredential = await _firebaseAuth.signInWithCredential(
+      credential,
+    );
+
+    return userCredential.user;
   }
 }

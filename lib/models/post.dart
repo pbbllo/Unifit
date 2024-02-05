@@ -1,4 +1,5 @@
 /// Model representing a post.
+library;
 
 class Post {
   final String title;
