@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-class SignInWebIcon extends StatelessWidget {
+class SocialSignInWidget extends StatelessWidget {
+  /// Shows views of the third-party authentication options.
   final VoidCallback? onPressedFacebook;
   final VoidCallback? onPressedGoogle;
-  const SignInWebIcon({
+  const SocialSignInWidget({
     super.key,
     this.onPressedGoogle,
     this.onPressedFacebook,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GradientButton extends StatelessWidget {
+  /// Button with the application colors gradient.
   final String text;
   final VoidCallback? onPressed;
   const GradientButton({super.key, required this.text, this.onPressed});

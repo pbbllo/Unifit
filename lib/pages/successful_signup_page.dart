@@ -3,8 +3,9 @@ import 'package:unifit/utils/constants.dart';
 import 'package:unifit/widgets/gradient_button.dart';
 import 'package:unifit/widgets/unifit_icons.dart';
 
-class RegisterMessagePage extends StatelessWidget {
-  const RegisterMessagePage({super.key});
+class SuccessfulSignupPage extends StatelessWidget {
+  /// Shows a successful message when the sign up occurs as expected.
+  const SuccessfulSignupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class RegisterMessagePage extends StatelessWidget {
               height: screenHeight * 0.01,
             ),
             Text(
-              AppStrings.REGISTER_MESSAGE_TEXT1,
+              AppStrings.SIGNUP_MESSAGE_TEXT1,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
@@ -50,8 +51,8 @@ class RegisterMessagePage extends StatelessWidget {
               height: screenHeight * 0.02,
             ),
             GradientButton(
-              onPressed: () => Navigator.of(context).popAndPushNamed('/login'),
-              text: AppStrings.BACK_TO_LOGIN,
+              onPressed: () => Navigator.of(context).popAndPushNamed('/signin'),
+              text: AppStrings.BACK_TO_SIGNIN,
             ),
           ],
         ),

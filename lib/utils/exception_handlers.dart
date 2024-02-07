@@ -3,6 +3,7 @@ import 'package:unifit/utils/logging.dart';
 import 'package:unifit/utils/constants.dart';
 
 class ExceptionHandler {
+  /// Application's exception handler.
   static String signUpErrorHandling(FirebaseAuthException error) {
     late String errorMessage;
     late String loggedMessage;

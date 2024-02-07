@@ -7,6 +7,7 @@ import 'package:unifit/widgets/event_item.dart';
 import 'package:unifit/widgets/progress_indicator.dart';
 
 class EventListView extends StatefulWidget {
+  /// Displays a list of [Event] objects.
   const EventListView({super.key});
 
   @override

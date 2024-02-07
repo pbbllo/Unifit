@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:unifit/utils/constants.dart';
-import 'package:unifit/views/event_view.dart';
+import 'package:unifit/views/event_list_view.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class FeedView extends StatefulWidget {
+  /// Displays the application's feeds (post and events).
+  const FeedView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<FeedView> createState() => _FeedViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _FeedViewState extends State<FeedView> {
   int _selectedNavBarIndex = 0;
 
   @override

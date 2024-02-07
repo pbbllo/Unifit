@@ -1,12 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:unifit/firebase_options.dart';
-import 'package:unifit/views/home_page.dart';
-import 'package:unifit/views/login_view.dart';
-import 'package:unifit/views/presentation_page.dart';
-import 'package:unifit/views/register.dart';
-import 'package:unifit/views/register_message_page.dart';
-import 'package:unifit/views/register_options_page.dart';
+import 'package:unifit/pages/home_page.dart';
+import 'package:unifit/pages/signin_page.dart';
+import 'package:unifit/pages/introduction_page.dart';
+import 'package:unifit/pages/signup_page.dart';
+import 'package:unifit/pages/successful_signup_page.dart';
+import 'package:unifit/pages/signup_options_page.dart';
 import 'utils/constants.dart';
 
 void main() async {
@@ -24,17 +24,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         '/home': (context) => const HomePage(),
-        '/login': (context) => const LoginView(),
-        '/register': (context) => const RegisterView(),
-        '/finished': (context) => const RegisterMessagePage(),
-        '/register_options': (context) => const RegisterOptionsView(),
+        '/signin': (context) => const SignInPage(),
+        '/signup': (context) => const SignUpPage(),
+        '/successful_signup': (context) => const SuccessfulSignupPage(),
+        '/signup_options': (context) => const SignUpOptionsPage(),
       },
       title: AppStrings.TITLE,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.MAIN_BLUE),
         useMaterial3: true,
       ),
-      home: const PresentationPage(),
+      home: const IntroductionPage(),
     );
   }
 }

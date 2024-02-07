@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 // ignore_for_file: constant_identifier_names
 
+const String APP_LOCALE = 'pt_BR';
+
 class AppStrings {
+  /// Application strings.
+  /// Interpolation can be used alongside [format] method
+  /// extension on [utils.extensions.StringExtension] file.
   static const String EMPTY = '';
   static const String TITLE = 'Unifit';
   static const String NEXT = 'Próximo';
@@ -9,7 +14,7 @@ class AppStrings {
   static const String SIGN_UP = 'REGISTRAR';
   static const String CANCEL = 'Cancelar';
   static const String SIGN_UP_FREE = 'Registre-se de graça!';
-  static const String BACK_TO_LOGIN = 'VOLTAR AO LOGIN';
+  static const String BACK_TO_SIGNIN = 'VOLTAR AO LOGIN';
   static const String WELCOME_TEXT = 'Bem vindo ao UnitFit.';
   static const String PRESENTATION_TEXT1 =
       'A aplicação perfeita para interação universitária '
@@ -28,12 +33,12 @@ class AppStrings {
   static const String SIGN_IN_SOCIAL_MEDIA = 'Ou entrar com uma conta social';
   static const String NEW_HERE = 'Novo por aqui?';
   static const String SUCCESS_TEXT = 'Sucesso!';
-  static const String REGISTER_WITH_EMAIL = 'CADASTRAR EMAIL';
-  static const String REGISTER_MESSAGE_TEXT1 =
+  static const String SIGNUP_WITH_EMAIL = 'CADASTRAR EMAIL';
+  static const String SIGNUP_MESSAGE_TEXT1 =
       'Verifique seu e-mail antes de fazer login. Um link de verificação foi enviado.\nVamos começar!';
-  static const String REGISTER_MESSAGE_TEXT2 = 'Registre-se usando seu e-mail';
-  static const String REGISTER_MESSAGE_TEXT3 = 'ou através de contas sociais';
-  static const String REGISTER_MESSAGE_TEXT4 =
+  static const String SIGNUP_MESSAGE_TEXT2 = 'Registre-se usando seu e-mail';
+  static const String SIGNUP_MESSAGE_TEXT3 = 'ou através de contas sociais';
+  static const String SIGNUP_MESSAGE_TEXT4 =
       'Unifit receberá:\n suas permissões para perfil público e endereço de email';
   static const String CONTINUE_SIGN_IN_TEXT = 'Continuar como';
   static const String TERMS_MESSAGE_TEXT1 =
@@ -71,9 +76,11 @@ class AppStrings {
       'Este endereço de e-mail já existe.';
   static const String USER_DISABLED_MESSAGE =
       'Usuário foi bloqueado pelo administrador.';
+  static const String EVENT_DATE = 'Data do Evento: %s.';
 }
 
 class LoggingStrings {
+  /// Application error or warning messages.
   static const String UNDEFINED_ERROR = 'Undefined error.';
   static const String EMAIL_ALREADY_USED_ERROR =
       'The email address is not valid.';

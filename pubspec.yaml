@@ -43,6 +43,7 @@ dependencies:
   firebase_storage: ^11.5.5
   intl: ^0.17.0
   logger: ^2.0.2+1
+  sprintf: "^7.0.0"
   google_sign_in: ^6.2.1
   flutter_facebook_auth: ^6.0.3
   sign_in_button: ^3.0.0

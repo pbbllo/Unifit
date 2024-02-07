@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:unifit/utils/constants.dart';
-import 'package:unifit/views/login_view.dart';
+import 'package:unifit/pages/signin_page.dart';
 import 'package:unifit/widgets/gradient_button.dart';
 
-class PresentationPage extends StatelessWidget {
-  const PresentationPage({super.key});
+class IntroductionPage extends StatelessWidget {
+  /// Displays the application's introduction.
+  const IntroductionPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: AppColors.MAIN_BLUE,
-      body: Center(child: TransitionalPresentation()),
+      body: Center(child: TransitionalIntroduction()),
     );
   }
 }
 
-class TransitionalPresentation extends StatefulWidget {
-  const TransitionalPresentation({super.key});
+class TransitionalIntroduction extends StatefulWidget {
+  /// Transitional slides for application's introduction.
+  const TransitionalIntroduction({super.key});
 
   @override
-  State<TransitionalPresentation> createState() =>
-      _TransitionalPresentationState();
+  State<TransitionalIntroduction> createState() =>
+      _TransitionalIntroductionState();
 }
 
-class _TransitionalPresentationState extends State<TransitionalPresentation> {
+class _TransitionalIntroductionState extends State<TransitionalIntroduction> {
   bool _showTopCenter = false;
   bool _showText = false;
   String _welcomeText = AppStrings.WELCOME_TEXT;
@@ -132,7 +134,7 @@ class _TransitionalPresentationState extends State<TransitionalPresentation> {
                               default:
                                 Navigator.of(context)
                                     .pushReplacement(MaterialPageRoute(
-                                  builder: (context) => const LoginView(),
+                                  builder: (context) => const SignInPage(),
                                 ));
                             }
                           });
