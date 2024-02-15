@@ -7,6 +7,7 @@ import 'package:unifit/services/firebase_service.dart';
 import 'package:unifit/utils/exception_handlers.dart';
 
 class Auth {
+  /// Handles application's authentication.
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   static final Auth instance = Auth._();

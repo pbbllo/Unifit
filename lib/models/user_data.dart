@@ -1,4 +1,5 @@
 abstract class IUser {
+  /// Interface for the application's user.
   final String name;
   final String email;
 
@@ -14,6 +15,7 @@ abstract class IUser {
 }
 
 class UserData implements IUser {
+  /// Default application's user.
   @override
   String email;
 

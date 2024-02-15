@@ -5,14 +5,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:unifit/services/auth_service.dart';
 import 'package:unifit/widgets/gradient_button.dart';
 
-class RegisterView extends StatefulWidget {
-  const RegisterView({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  /// Signs up a user into the application.
+  const SignUpPage({super.key});
 
   @override
-  _RegisterViewState createState() => _RegisterViewState();
+  SignUpPageState createState() => SignUpPageState();
 }
 
-class _RegisterViewState extends State<RegisterView> {
+class SignUpPageState extends State<SignUpPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _courseController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();

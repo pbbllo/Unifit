@@ -3,6 +3,7 @@ import 'package:unifit/enums/firebase_collection_enum.dart';
 import 'package:unifit/interfaces/firebase_service_interface.dart';
 
 class FirebaseService implements IFirebaseService {
+  /// Provides methods to interact with Firebase collections.
   final CollectionReference _eventCollection = IFirebaseService.firebaseInstance
       .collection(FirebaseCollectionEnum.event.name);
   final CollectionReference _userCollection = IFirebaseService.firebaseInstance

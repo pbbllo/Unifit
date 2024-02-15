@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:unifit/utils/constants.dart';
 
 class ScoreCard extends StatelessWidget {
+  /// Card that shows the score of an [Event] object.
   final String score;
   const ScoreCard({super.key, required this.score});
 

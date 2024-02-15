@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:unifit/controllers/profile_picture_controller.dart';
 import 'package:unifit/utils/constants.dart';
 import 'package:unifit/widgets/unifit_icons.dart';
-import 'package:unifit/widgets/web_button.dart';
+import 'package:unifit/widgets/social_signin_button.dart';
 
-class WebPage extends StatelessWidget {
+class SignInConfirmationPage extends StatelessWidget {
+  /// Displays the confirmation of Google's sign in into application.
   final String text;
   final Color color;
-  const WebPage({super.key, required this.text, required this.color});
+  const SignInConfirmationPage(
+      {super.key, required this.text, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class WebPage extends StatelessWidget {
             const Align(
               alignment: Alignment.center,
               child: Text(
-                AppStrings.REGISTER_MESSAGE_TEXT4,
+                AppStrings.SIGNUP_MESSAGE_TEXT4,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: AppColors.MAIN_BLACK,
@@ -53,7 +55,7 @@ class WebPage extends StatelessWidget {
             SizedBox(
               height: screenHeight * 0.02,
             ),
-            WebButton(
+            SocialSignInButton(
               text: text,
               color: color,
               onPressed: () =>

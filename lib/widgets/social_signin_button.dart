@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-class WebButton extends StatelessWidget {
+class SocialSignInButton extends StatelessWidget {
+  ///
   final String text;
   final VoidCallback? onPressed;
   final Color color;
-  const WebButton(
+  const SocialSignInButton(
       {super.key, required this.text, this.onPressed, required this.color});
 
   @override

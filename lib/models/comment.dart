@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Comment {
+  /// Model representing a comment.
   final String id;
   final DocumentReference authorId;
   final String content;

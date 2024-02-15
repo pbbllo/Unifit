@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:unifit/utils/constants.dart';
-import 'package:unifit/views/home_view.dart';
+import 'package:unifit/views/feed_view.dart';
 import 'package:unifit/widgets/home_app_bar.dart';
 
 class HomePage extends StatefulWidget {
+  /// Application's home page.
   const HomePage({super.key});
 
   @override
@@ -15,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _mainViewOptions = <Widget>[
-    HomeView(),
+    FeedView(),
     Text(
       AppStrings.CALENDAR,
       style: optionStyle,

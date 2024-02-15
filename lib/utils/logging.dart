@@ -2,6 +2,7 @@ import 'package:intl/intl.dart';
 import 'package:logger/logger.dart';
 
 class Logging {
+  /// Logging utils.
   static final _instance = Logger();
 
   Logging._();

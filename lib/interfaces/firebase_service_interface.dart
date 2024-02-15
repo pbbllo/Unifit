@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:unifit/enums/firebase_collection_enum.dart';
 
 abstract class IFirebaseService {
+  /// Interface for handle Firebase collections and documents.
   static final FirebaseFirestore firebaseInstance = FirebaseFirestore.instance;
 
   Future<DocumentSnapshot> get(

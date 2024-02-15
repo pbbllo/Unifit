@@ -1,26 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:intl/intl.dart';
-
-/// Model representing an event.
+import 'package:unifit/models/comment.dart';
 
 class Event {
+  /// Model representing an event.
   final String id;
   final String title;
   final String description;
   final Timestamp creationDate;
   final Timestamp eventDate;
   bool isLiked;
-  final List<DocumentReference> comments;
-  Event(this.id, this.title, this.description, this.creationDate,
-      this.eventDate, this.isLiked, this.comments);
+  final List<DocumentReference> _comments;
+
+  Event._(this.id, this.title, this.description, this.creationDate,
+      this.eventDate, this.isLiked, this._comments);
 
   factory Event.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) {
     List<dynamic> commentsData = documentSnapshot['comments'] ?? [];
     List<DocumentReference<Object?>> comments = commentsData
         .map((comment) => comment as DocumentReference<Object?>)
         .toList();
-    print('ID: ${documentSnapshot.id}');
-    return Event(
+    return Event._(
         documentSnapshot.id,
         documentSnapshot['title'],
         documentSnapshot['description'],
@@ -30,17 +29,17 @@ class Event {
         comments);
   }
 
-  String getEventDate({String? format}) {
-    format = (format == null || format.isEmpty) ? 'dd/MM' : format;
-    DateTime dateTime = eventDate.toDate();
-    String formattedDate = DateFormat('dd/MM').format(dateTime);
-    return formattedDate;
-  }
-
-  String getCreationDate({String? format}) {
-    format = (format == null || format.isEmpty) ? 'dd/MM/yy' : format;
-    DateTime dateTime = creationDate.toDate();
-    String formattedDate = DateFormat('dd/MM/yy').format(dateTime);
-    return formattedDate;
+  Future<List<Comment>> getComments() async {
+    List<DocumentSnapshot> commentSnaps = await Future.wait(_comments
+        .map((commentReference) async => await commentReference.get()));
+    List<Comment> comments = commentSnaps
+        .map((commentSnap) => commentSnap.exists
+            ? Comment.fromDocumentSnapshot(commentSnap)
+            : null)
+        .where((comment) => comment != null)
+        .cast<Comment>()
+        .toList();
+    comments.sort((a, b) => a.creationDate.compareTo(b.creationDate));
+    return comments;
   }
 }

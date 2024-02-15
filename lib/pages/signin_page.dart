@@ -3,19 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:unifit/services/auth_service.dart';
 import 'package:unifit/utils/constants.dart';
 import 'package:unifit/utils/logging.dart';
-import 'package:unifit/views/web_page.dart';
+import 'package:unifit/pages/signin_confirmation_page.dart';
 import 'package:unifit/widgets/gradient_button.dart';
-import 'package:unifit/widgets/signup_web.dart';
+import 'package:unifit/widgets/social_signin_widget.dart';
 import 'package:unifit/widgets/unifit_icons.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class SignInPage extends StatefulWidget {
+  /// Signs in a user into the application.
+  const SignInPage({super.key});
 
   @override
-  LoginViewState createState() => LoginViewState();
+  SignInPageState createState() => SignInPageState();
 }
 
-class LoginViewState extends State<LoginView> {
+class SignInPageState extends State<SignInPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -121,7 +122,7 @@ class LoginViewState extends State<LoginView> {
                     ),
                   ),
                 ),
-                SignInWebIcon(onPressedGoogle: _joinWithGoogleAccount),
+                SocialSignInWidget(onPressedGoogle: _joinWithGoogleAccount),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -133,7 +134,7 @@ class LoginViewState extends State<LoginView> {
                     ),
                     TextButton(
                       onPressed: () =>
-                          Navigator.of(context).pushNamed('/register_options'),
+                          Navigator.of(context).pushNamed('/signup_options'),
                       child: const Text(
                         AppStrings.SIGN_UP_FREE,
                         style: TextStyle(
@@ -177,7 +178,7 @@ class LoginViewState extends State<LoginView> {
         String? userName = user.displayName;
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => WebPage(
+            builder: (context) => SignInConfirmationPage(
               text: '${AppStrings.CONTINUE_SIGN_IN_TEXT} $userName',
               color: AppColors.MAIN_RED,
             ),

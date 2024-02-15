@@ -8,6 +8,7 @@ import 'package:unifit/models/event.dart';
 import 'package:unifit/services/firebase_service.dart';
 
 class EventController {
+  /// Provides ways to handle [Event] objects.
   List<DocumentSnapshot> documentList = [];
   bool isLoading = false;
   bool hasMore = true;
