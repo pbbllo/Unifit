@@ -139,7 +139,30 @@ class _TransitionalIntroductionState extends State<TransitionalIntroduction> {
                             }
                           });
                         },
-                      )
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.01,
+                      ),
+                      InkWell(
+                          onTap: () => Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (context) => const SignInPage())),
+                          child: SizedBox(
+                            height: screenHeight * 0.03,
+                            width: screenWidth * 0.4,
+                            child: const Center(
+                              child: Text(
+                                AppStrings.JUMP_INTRODUCTION,
+                                style: TextStyle(
+                                  color: AppColors.MAIN_ORANGE,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: AppColors.MAIN_ORANGE,
+                                  decorationStyle: TextDecorationStyle.solid,
+                                ),
+                              ),
+                            ),
+                          )),
                     ],
                   )
                 : Container(),

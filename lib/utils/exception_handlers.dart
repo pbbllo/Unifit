@@ -86,3 +86,14 @@ class ExceptionHandler {
     Logging.logWarning(loggedMessage);
   }
 }
+
+class InternalApplicationError implements Exception {
+  final String message;
+
+  InternalApplicationError([this.message = AppStrings.EMPTY]);
+
+  @override
+  String toString() {
+    return 'InternalApplicationError: $message';
+  }
+}

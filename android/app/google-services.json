@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "654220668768-hcjldr1dkqbl88kk10eae9hcqd3rk83c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unifit.unifit",
+            "certificate_hash": "21434927ccb04a941958c6530028df59a35d6ec5"
+          }
+        },
+        {
+          "client_id": "654220668768-jpg229f00ppkmk4tqcsvmfo3frlbo1e9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unifit.unifit",
+            "certificate_hash": "46e412d22403547ce068d9c737efa762615449fa"
+          }
+        },
+        {
           "client_id": "654220668768-0kv7j2r7kcj0llj4emf151ront6jealk.apps.googleusercontent.com",
           "client_type": 3
         }

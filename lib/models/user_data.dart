@@ -1,9 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 abstract class IUser {
   /// Interface for the application's user.
-  final String name;
-  final String email;
+  String? id;
+  String name;
+  String email;
 
-  IUser({required this.name, required this.email});
+  IUser(this.id, this.name, this.email);
 
   String getName({name});
   String getEmail({email});
@@ -11,11 +14,14 @@ abstract class IUser {
   void setName({name});
   void setEmail({email});
 
-  Map toJson();
+  Map<String, dynamic> toMap();
 }
 
 class UserData implements IUser {
   /// Default application's user.
+  @override
+  String? id;
+
   @override
   String email;
 
@@ -24,15 +30,24 @@ class UserData implements IUser {
 
   String? profilePicture;
 
-  UserData({required this.email, required this.name, this.profilePicture});
+  UserData(
+      {this.id, required this.name, required this.email, this.profilePicture});
 
-  UserData.fromJson(Map<String, dynamic> json)
+  UserData.fromMap(Map<String, dynamic> json)
       : email = json['email'],
         name = json['name'],
         profilePicture = json['profilePicture'];
 
+  factory UserData.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) {
+    return UserData(
+        id: documentSnapshot.id,
+        name: documentSnapshot['name'],
+        email: documentSnapshot['email'],
+        profilePicture: documentSnapshot['profilePicture']);
+  }
+
   @override
-  Map<String, dynamic> toJson() =>
+  Map<String, dynamic> toMap() =>
       {'email': email, 'name': name, 'profilePicture': profilePicture};
 
   @override

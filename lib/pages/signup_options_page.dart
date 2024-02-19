@@ -91,13 +91,15 @@ class SignUpOptionsPageState extends State<SignUpOptionsPage> {
         );
       }
       // ignore: empty_catches
-    } on FirebaseAuthException catch (error) {
+    } on FirebaseAuthException catch (error, stackTrace) {
       //TODO IMPLEMENTATION
-      Logging.logError(error.message.toString());
+      Logging.logError(error.message.toString(), stackTrace);
+    } on Exception catch (error, stacktrace) {
+      Logging.logError(error.toString(), stacktrace);
     } catch (error) {
       //TODO IMPLEMENTATION
       //Needs to show to user, this way we only showing on terminal
-      Logging.logError(error.toString());
+      // Logging.logError(error.toString());
     }
   }
 
