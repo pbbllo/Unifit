@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:unifit/utils/constants.dart';
 import 'package:unifit/views/feed_view.dart';
+import 'package:unifit/views/profile_view.dart';
 import 'package:unifit/widgets/home_app_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,10 +30,7 @@ class _HomePageState extends State<HomePage> {
       AppStrings.ACHIEVEMENTS,
       style: optionStyle,
     ),
-    Text(
-      AppStrings.PROFILE,
-      style: optionStyle,
-    ),
+    ProfileView(),
   ];
 
   void _onBottomNavBarItemTapped(int index) {

@@ -28,11 +28,7 @@ class SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       backgroundColor: AppColors.MAIN_BLUE,
       body: Padding(
-        padding: EdgeInsets.only(
-          top: screenHeight * 0.10,
-          left: screenWidth * 0.08,
-          right: screenWidth * 0.08,
-        ),
+        padding: EdgeInsets.all(screenHeight * 0.5),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -124,6 +120,7 @@ class SignUpPageState extends State<SignUpPage> {
                 style: const TextStyle(
                   color: Colors.black,
                 ),
+                obscureText: true,
                 decoration: InputDecoration(
                   fillColor: Colors.white,
                   filled: true,
@@ -147,6 +144,7 @@ class SignUpPageState extends State<SignUpPage> {
                 style: const TextStyle(
                   color: Colors.black,
                 ),
+                obscureText: true,
                 decoration: InputDecoration(
                   fillColor: Colors.white,
                   filled: true,
@@ -184,7 +182,7 @@ class SignUpPageState extends State<SignUpPage> {
 
     if (user != null) {
       Auth.instance.signIn(email, password);
-      Navigator.of(context).popAndPushNamed('/home');
+      Navigator.of(context).popAndPushNamed('/successful_signup');
     }
   }
 }

@@ -12,6 +12,7 @@ class AppStrings {
   static const String NEXT = 'Próximo';
   static const String SIGN_IN = 'ENTRAR';
   static const String SIGN_UP = 'REGISTRAR';
+  static const String SIGN_OUT = 'Sair';
   static const String CANCEL = 'Cancelar';
   static const String SIGN_UP_FREE = 'Registre-se de graça!';
   static const String BACK_TO_SIGNIN = 'VOLTAR AO LOGIN';
