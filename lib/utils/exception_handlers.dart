@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:unifit/utils/logging.dart';
 import 'package:unifit/utils/constants.dart';
 
@@ -60,6 +61,8 @@ class ExceptionHandler {
         loggedMessage = LoggingStrings.UNDEFINED_ERROR;
     }
     Logging.logWarning(loggedMessage);
+    Fluttertoast.showToast(msg: errorMessage);
+
     return errorMessage;
   }
 
