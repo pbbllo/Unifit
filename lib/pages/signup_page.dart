@@ -28,7 +28,11 @@ class SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       backgroundColor: AppColors.MAIN_BLUE,
       body: Padding(
-        padding: EdgeInsets.all(screenHeight * 0.5),
+        padding: EdgeInsets.only(
+          top: screenHeight * 0.10,
+          left: screenWidth * 0.08,
+          right: screenWidth * 0.08,
+        ),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
