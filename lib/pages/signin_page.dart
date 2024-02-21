@@ -176,7 +176,7 @@ class SignInPageState extends State<SignInPage> {
       final user = await Auth.instance.signInWithGoogle();
       if (user != null && mounted) {
         String? userName = user.displayName;
-        Navigator.of(context).pushReplacement(
+        Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => SignInConfirmationPage(
               text: '${AppStrings.CONTINUE_SIGN_IN_TEXT} $userName',

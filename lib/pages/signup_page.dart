@@ -124,6 +124,7 @@ class SignUpPageState extends State<SignUpPage> {
                 style: const TextStyle(
                   color: Colors.black,
                 ),
+                obscureText: true,
                 decoration: InputDecoration(
                   fillColor: Colors.white,
                   filled: true,
@@ -147,6 +148,7 @@ class SignUpPageState extends State<SignUpPage> {
                 style: const TextStyle(
                   color: Colors.black,
                 ),
+                obscureText: true,
                 decoration: InputDecoration(
                   fillColor: Colors.white,
                   filled: true,
@@ -184,7 +186,7 @@ class SignUpPageState extends State<SignUpPage> {
 
     if (user != null) {
       Auth.instance.signIn(email, password);
-      Navigator.of(context).popAndPushNamed('/home');
+      Navigator.of(context).popAndPushNamed('/successful_signup');
     }
   }
 }

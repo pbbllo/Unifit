@@ -62,7 +62,8 @@ class SignInConfirmationPage extends StatelessWidget {
                   Navigator.of(context).pushReplacementNamed('/home'),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () =>
+                  Navigator.of(context, rootNavigator: true).pop(context),
               child: const Text(
                 AppStrings.CANCEL,
                 style: TextStyle(
