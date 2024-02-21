@@ -88,6 +88,8 @@ class Auth {
           profilePicture: userCredential.user?.photoURL);
       await UserController.instance.addUserToCollection(newUser);
       userData = newUser;
+    } else {
+      userData = currentUser;
     }
     // userData = UserData.fromDocumentSnapshot(userDoc);
     return userCredential.user;

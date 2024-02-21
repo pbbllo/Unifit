@@ -13,3 +13,13 @@ extension StringExtension on String {
     return sprintf(this, arguments);
   }
 }
+
+extension ObjectExtension on Object? {
+  /// Extension methods for [Object].
+
+  /// Checks if an object is null
+  bool isNull() => this == null;
+
+  /// Checks if an object is not null
+  bool isNotNull() => this != null;
+}

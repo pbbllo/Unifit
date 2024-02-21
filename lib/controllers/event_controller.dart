@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:unifit/services/firebase_storage_service.dart';
 import 'package:unifit/utils/logging.dart';
 import 'package:unifit/enums/firebase_collection_enum.dart';
 import 'package:unifit/models/event.dart';
@@ -50,5 +51,15 @@ class EventController {
         id: event.id,
         collection: FirebaseCollectionEnum.event,
         data: {'isLiked': event.isLiked});
+  }
+
+  static Future<String?> getEventImage(String? eventId) async {
+    if (eventId != null) {
+      String fileStorageId = 'event/$eventId.jpg';
+      String? imageURL =
+          await FirebaseStorageService.instance.get(id: fileStorageId);
+      return imageURL;
+    }
+    return null;
   }
 }

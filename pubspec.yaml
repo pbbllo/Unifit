@@ -94,6 +94,9 @@ flutter:
     - lib/assets/layers/facebook_icon.png
     - lib/assets/layers/google_icon.png
     - lib/assets/layers/social_leaderboard.svg
+    - lib/assets/layers/user/fLCjdtls15aRfb8HaEOA33nbPPh1.jpg
+    - lib/assets/layers/user/K1Sya4E8cfMjM2PPd2UlWF3TyWD2.jpg
+    - lib/assets/layers/user/HrhOrpfkiUaEGmTVBes0rzYfqw82.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
