@@ -3,16 +3,19 @@ import 'package:unifit/models/comment.dart';
 
 class Event {
   /// Model representing an event.
-  final String id;
-  final String title;
-  final String description;
-  final Timestamp creationDate;
-  final Timestamp eventDate;
+  String? id;
+  String title;
+  String description;
+  Timestamp creationDate;
+  Timestamp eventDate;
   bool isLiked;
-  final List<DocumentReference> _comments;
+  List<DocumentReference> comments;
 
   Event._(this.id, this.title, this.description, this.creationDate,
-      this.eventDate, this.isLiked, this._comments);
+      this.eventDate, this.isLiked, this.comments) {
+    // ignore: dead_null_aware_expression
+    creationDate ??= Timestamp.now();
+  }
 
   factory Event.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) {
     List<dynamic> commentsData = documentSnapshot['comments'] ?? [];
@@ -29,17 +32,28 @@ class Event {
         comments);
   }
 
-  Future<List<Comment>> getComments() async {
-    List<DocumentSnapshot> commentSnaps = await Future.wait(_comments
-        .map((commentReference) async => await commentReference.get()));
-    List<Comment> comments = commentSnaps
+  Map<String, dynamic> toMap() {
+    Map<String, dynamic> event = {
+      'title': title,
+      'description': description,
+      'creationDate': creationDate,
+      'eventDate': eventDate,
+      'comments': comments.map((comment) => comment).toList(),
+    };
+    return event;
+  }
+
+  Future<List<Comment>> getEventComments() async {
+    List<DocumentSnapshot> commentSnaps = await Future.wait(
+        comments.map((commentReference) async => await commentReference.get()));
+    List<Comment> loadedComments = commentSnaps
         .map((commentSnap) => commentSnap.exists
             ? Comment.fromDocumentSnapshot(commentSnap)
             : null)
         .where((comment) => comment != null)
         .cast<Comment>()
         .toList();
-    comments.sort((a, b) => a.creationDate.compareTo(b.creationDate));
-    return comments;
+    loadedComments.sort((a, b) => a.creationDate.compareTo(b.creationDate));
+    return loadedComments;
   }
 }

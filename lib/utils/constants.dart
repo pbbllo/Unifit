@@ -9,10 +9,12 @@ class AppStrings {
   /// extension on [utils.extensions.StringExtension] file.
   static const String EMPTY = '';
   static const String TITLE = 'Unifit';
+  static const String JUMP_INTRODUCTION = 'Pular Introdução';
   static const String NEXT = 'Próximo';
   static const String SIGN_IN = 'ENTRAR';
   static const String SIGN_UP = 'REGISTRAR';
   static const String CANCEL = 'Cancelar';
+  static const String SEND = 'Enviar';
   static const String SIGN_UP_FREE = 'Registre-se de graça!';
   static const String BACK_TO_SIGNIN = 'VOLTAR AO LOGIN';
   static const String WELCOME_TEXT = 'Bem vindo ao UnitFit.';
@@ -77,6 +79,13 @@ class AppStrings {
   static const String USER_DISABLED_MESSAGE =
       'Usuário foi bloqueado pelo administrador.';
   static const String EVENT_DATE = 'Data do Evento: %s.';
+  static const String MORE = 'mais';
+  static const String COMMENTS = 'Comentários';
+  static const String ADD_A_COMMENT = 'Adicionar um comentário...';
+  static const String SEE_ALL_COMMENTS = 'Ver todos os comentários';
+  static const String JOIN = 'Participar';
+  static const String HAS_JOINED = 'Você está participando.';
+  static const String LEAVE_EVENT = 'Deixar Evento';
 }
 
 class LoggingStrings {

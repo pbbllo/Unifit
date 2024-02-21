@@ -49,6 +49,6 @@ class EventController {
     FirebaseService.instance.update(
         id: event.id,
         collection: FirebaseCollectionEnum.event,
-        value: {'isLiked': event.isLiked});
+        data: {'isLiked': event.isLiked});
   }
 }

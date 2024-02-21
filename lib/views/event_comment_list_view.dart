@@ -7,9 +7,11 @@ import 'package:unifit/widgets/progress_indicator.dart';
 
 class EventCommentListView extends StatefulWidget {
   /// Display a [Comment] list of an [Event] object.
-  const EventCommentListView({super.key, required this.event});
+  const EventCommentListView(
+      {super.key, required this.event, required this.eventCommentController});
 
   final Event event;
+  final EventCommentController eventCommentController;
 
   @override
   State<EventCommentListView> createState() => _EventCommentListViewState();
@@ -23,7 +25,7 @@ class _EventCommentListViewState extends State<EventCommentListView> {
   @override
   void initState() {
     super.initState();
-    eventCommentController = EventCommentController(widget.event);
+    eventCommentController = widget.eventCommentController;
     eventCommentController.loadEventComments();
   }
 
