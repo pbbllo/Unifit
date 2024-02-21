@@ -21,6 +21,7 @@ class AppStrings {
   static const String PRESENTATION_TEXT1 =
       'A aplicação perfeita para interação universitária '
       'aliada à prática de exercícios físicos!';
+  static const String UFRPE = 'Universidade Federal Rural de Pernambuco';
   static const String PRESENTATION_TEXT2 =
       'Crie ou participe de eventos de atividades físicas ligados à UFRPE!';
   static const String PRESENTATION_TEXT3 =

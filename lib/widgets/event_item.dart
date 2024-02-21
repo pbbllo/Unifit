@@ -3,6 +3,7 @@ import 'package:unifit/controllers/event_controller.dart';
 import 'package:unifit/enums/date_format_enum.dart';
 import 'package:unifit/models/event.dart';
 import 'package:unifit/utils/constants.dart';
+import 'package:unifit/utils/extensions.dart';
 import 'package:unifit/utils/utils.dart';
 import 'package:unifit/pages/event_page.dart';
 import 'package:unifit/widgets/score_card.dart';
@@ -18,6 +19,14 @@ class EventItem extends StatefulWidget {
 }
 
 class _EventItemState extends State<EventItem> {
+  late Future<String?> _eventImageFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    this._eventImageFuture = EventController.getEventImage(widget.event.id);
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height; // 1030.56
@@ -56,13 +65,15 @@ class _EventItemState extends State<EventItem> {
                         width: screenHeight * 0.05,
                         height: screenHeight * 0.05,
                         decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.grey,
-                        ),
-                        child: const Icon(
-                          Icons.person,
-                          color: Colors.white,
-                        ),
+                            shape: BoxShape.circle, color: Colors.grey),
+                        child: (widget.event.authorId.isNotNull())
+                            ? ClipOval(
+                                child: Image.asset(
+                                  'lib/assets/layers/user/${widget.event.authorId}.jpg',
+                                  width: screenHeight * 0.05,
+                                ),
+                              )
+                            : const Icon(Icons.person, color: Colors.white),
                       ),
                     ),
                     SizedBox(width: screenWidth * 0.015),
@@ -82,10 +93,12 @@ class _EventItemState extends State<EventItem> {
                           // Event location
                           const Row(
                             children: <Widget>[
-                              Icon(Icons.location_on),
+                              Icon(
+                                Icons.location_on,
+                              ),
                               Text(
                                 // TODO: Add the reference to the location.
-                                'Localização',
+                                AppStrings.UFRPE,
                                 style: TextStyle(color: Colors.blue),
                               ),
                             ],
@@ -111,9 +124,28 @@ class _EventItemState extends State<EventItem> {
                 Padding(
                   padding: EdgeInsets.fromLTRB(
                       0, eventItemPadding, 0, eventItemPadding),
-                  child: Container(
-                    color: AppColors.MAIN_BLUE.withOpacity(0.1),
-                    height: eventItemHeight / 2,
+                  child: FutureBuilder<String?>(
+                    future: _eventImageFuture,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done &&
+                          snapshot.hasData) {
+                        String eventURL = snapshot.data!;
+                        widget.event.eventURL = eventURL;
+                        return SizedBox(
+                          height: eventItemHeight / 2,
+                          child: Image.network(
+                            eventURL,
+                            width: double.infinity,
+                            alignment: Alignment.center,
+                            fit: BoxFit.cover,
+                          ),
+                        );
+                      } else {
+                        return Container(
+                            color: AppColors.MAIN_BLUE.withOpacity(0.1),
+                            height: eventItemHeight / 2);
+                      }
+                    },
                   ),
                 ),
                 // Event footer

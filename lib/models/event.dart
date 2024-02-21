@@ -4,15 +4,17 @@ import 'package:unifit/models/comment.dart';
 class Event {
   /// Model representing an event.
   String? id;
+  String authorId;
   String title;
   String description;
   Timestamp creationDate;
   Timestamp eventDate;
   bool isLiked;
   List<DocumentReference> comments;
+  String? eventURL;
 
-  Event._(this.id, this.title, this.description, this.creationDate,
-      this.eventDate, this.isLiked, this.comments) {
+  Event._(this.id, this.authorId, this.title, this.description,
+      this.creationDate, this.eventDate, this.isLiked, this.comments) {
     // ignore: dead_null_aware_expression
     creationDate ??= Timestamp.now();
   }
@@ -24,6 +26,7 @@ class Event {
         .toList();
     return Event._(
         documentSnapshot.id,
+        documentSnapshot['authorId'],
         documentSnapshot['title'],
         documentSnapshot['description'],
         documentSnapshot['creationDate'],
@@ -35,6 +38,7 @@ class Event {
   Map<String, dynamic> toMap() {
     Map<String, dynamic> event = {
       'title': title,
+      'authorId': authorId,
       'description': description,
       'creationDate': creationDate,
       'eventDate': eventDate,

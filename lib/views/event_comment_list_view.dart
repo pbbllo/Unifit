@@ -58,17 +58,18 @@ class _EventCommentListViewState extends State<EventCommentListView> {
                               // TODO: handle button press;
                             },
                             child: Container(
-                              width: screenHeight * 0.03,
-                              height: screenHeight * 0.03,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey,
-                              ),
-                              child: const Icon(
-                                Icons.person,
-                                color: Colors.white,
-                              ),
-                            ),
+                                width: screenHeight * 0.03,
+                                height: screenHeight * 0.03,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.grey,
+                                ),
+                                child: ClipOval(
+                                  child: Image.asset(
+                                    'lib/assets/layers/user/${comment.authorId.id}.jpg',
+                                    width: screenHeight * 0.03,
+                                  ),
+                                )),
                           ),
                           title: Text(comment.content)));
                 },

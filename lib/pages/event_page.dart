@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:unifit/controllers/event_comment_controller.dart';
-import 'package:unifit/controllers/user_controller.dart';
 import 'package:unifit/enums/date_format_enum.dart';
 import 'package:unifit/models/event.dart';
+import 'package:unifit/models/user_data.dart';
+import 'package:unifit/services/auth_service.dart';
 import 'package:unifit/utils/constants.dart';
+import 'package:unifit/utils/extensions.dart';
 import 'package:unifit/utils/logging.dart';
 import 'package:unifit/utils/utils.dart';
 import 'package:unifit/views/event_comment_list_view.dart';
@@ -29,6 +31,7 @@ class _EventPageState extends State<EventPage> {
   bool isCommentSectionActive = false;
   final FocusNode _focusNode = FocusNode();
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  IUser userData = Auth.instance.userData;
 
   void updateTextProperties() {
     setState(() {
@@ -102,17 +105,21 @@ class _EventPageState extends State<EventPage> {
                     child: Row(
                       children: [
                         Container(
-                          width: screenHeight * 0.05,
-                          height: screenHeight * 0.05,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.grey,
-                          ),
-                          child: const Icon(
-                            Icons.person,
-                            color: Colors.white,
-                          ),
-                        ),
+                            width: screenHeight * 0.05,
+                            height: screenHeight * 0.05,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.grey,
+                            ),
+                            child: (userData.id.isNotNull())
+                                ? ClipOval(
+                                    child: Image.asset(
+                                      'lib/assets/layers/user/${userData.id}.jpg',
+                                      width: screenHeight * 0.05,
+                                    ),
+                                  )
+                                : const Icon(Icons.person,
+                                    color: Colors.white)),
                         SizedBox(
                           width: screenWidth * 0.03,
                         ),
@@ -214,7 +221,7 @@ class _EventPageState extends State<EventPage> {
                     ),
                     Text(
                       // TODO: Add the reference to the location.
-                      'Localização',
+                      AppStrings.UFRPE,
                       style: TextStyle(
                         color: Colors.blue,
                         fontSize: screenHeight * 0.015,
@@ -223,10 +230,20 @@ class _EventPageState extends State<EventPage> {
                   ],
                 ),
                 SizedBox(height: screenHeight * 0.01),
-                Container(
-                  color: AppColors.MAIN_BLUE.withOpacity(0.1),
-                  height: screenHeight / 4,
-                ),
+                (widget.event.eventURL.isNotNull())
+                    ? SizedBox(
+                        height: screenHeight / 4,
+                        child: Image.network(
+                          widget.event.eventURL!,
+                          width: double.infinity,
+                          alignment: Alignment.center,
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    : Container(
+                        color: AppColors.MAIN_BLUE.withOpacity(0.1),
+                        height: screenHeight / 4,
+                      ),
                 SizedBox(height: screenHeight * 0.01),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -319,13 +336,16 @@ class _EventPageState extends State<EventPage> {
                               width: screenHeight * 0.05,
                               height: screenHeight * 0.05,
                               decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey,
-                              ),
-                              child: const Icon(
-                                Icons.person,
-                                color: Colors.white,
-                              ),
+                                  shape: BoxShape.circle, color: Colors.grey),
+                              child: (userData.id.isNotNull())
+                                  ? ClipOval(
+                                      child: Image.asset(
+                                        'lib/assets/layers/user/${userData.id}.jpg',
+                                        width: screenHeight * 0.05,
+                                      ),
+                                    )
+                                  : const Icon(Icons.person,
+                                      color: Colors.white),
                             ),
                             SizedBox(
                               width: screenWidth * 0.03,
